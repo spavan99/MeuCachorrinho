@@ -1,0 +1,82 @@
+﻿
+@using System.Collections.Generic;
+@using Microsoft.AspNetCore.Http
+
+<!--  *****  LAYOUT DAS PAGINA INICIAL ***** -->
+
+
+<!DOCTYPE html>
+<html lang="pt_br">
+
+    <head>
+        @{
+                await Html.RenderPartialAsync("_HeadPadrao");
+        }
+  
+        @{
+            await Html.RenderPartialAsync("_FooterJava");
+        }
+
+
+    </head>
+
+    <body >
+
+        <header>
+
+           <div class="container-fluid px-0 mx-0">
+  
+                <!-- colocar validacao na controller -->
+                @if(Context.Session.GetInt32("idUsuario") != null){
+                    await Html.RenderPartialAsync("MenuLogadoPrincipal");
+                    await Html.RenderPartialAsync("Banner3Principal");
+                }else{
+
+                    <div class="row borda-principal ">
+                        <!-- logo do empresa do site -->
+                        <div class="col-md-3 mx-0 px-0" style="height: 180px"  >
+                            <a asp-area="" asp-controller="Home" asp-action="Index">
+                                    <img src="/imagens/logo1.png" height="100%"   width="100%" alt="Logo MeuCachorrinho">
+                            </a>
+                        </div>
+
+                        <!-- menu e banner colocar loop futuro -->
+                        <div class="col-md-9 mx-0 px-0" >
+                            @if(Context.Session.GetInt32("idUsuario") != null){
+                                    await Html.RenderPartialAsync("MenuLogadoPrincipal");
+                            }else{
+                                    await Html.RenderPartialAsync("MenuPrincipal");
+                            } 
+                            <!-- carregar banner rotativo das paginas -->
+                            @{
+                                await Html.RenderPartialAsync("Banner3Principal");
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+ 
+        </header>
+
+        <main role="main" >
+            @RenderBody()
+        </main>
+
+        <!-- ******** rodape ********* -->
+         <footer class="container-fluid border-top text-muted p-0 m-0" >
+
+            <br/>   
+            @{
+                await Html.RenderPartialAsync("BarraFooter");
+            }
+        </footer>
+ 
+ 
+        @await RenderSectionAsync("Scripts", required: false)
+
+
+    </body>
+
+</html>
+
+

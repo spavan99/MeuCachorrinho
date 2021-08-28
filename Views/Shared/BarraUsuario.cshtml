@@ -1,0 +1,38 @@
+@using Microsoft.AspNetCore.Http
+
+
+   <div class="col-md-12 mx-0 px-0 borda-principal-sombra">
+           @if(Context.Session.GetInt32("idUsuario") != null){
+
+            <nav class="navbar navbar-expand-sm navbar-light bg-warning">
+                <a class="nav-link btn btn-danger text-white" type="button" asp-area="" asp-controller="Usuario" asp-action="LogoutUser">LOGOUT  </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+   
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto topnav">
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-controller="Usuario" asp-action="ListaUsuario">Usuario <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Cliente" asp-action="ListaCliente">Cliente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Fornecedor" asp-action="ListaFornecedor">Fornecedor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Servico" asp-action="ListaServico">Cadasto de Servico</a>
+                        </li>
+                    </ul>
+                </div>
+             </nav>   
+
+           }else{
+             <div class="alert alert-warning" role="alert">
+                  <a class="nav-link" asp-controller="Usuario" asp-action="LoginUser">Usuario nao Logado - Caso já tenha Cadasdro - Click AQUI <span class="sr-only">(current)</span></a>
+             </div>
+           }   
+   
+   </div>
+

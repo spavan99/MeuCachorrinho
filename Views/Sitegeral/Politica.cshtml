@@ -1,0 +1,63 @@
+@using Microsoft.AspNetCore.Http
+
+@{
+    Layout = "_LayoutPagina";
+    ViewData["Title"] = "Politica da Empresa";
+
+}
+
+@if(Context.Session.GetInt32("idUsuario") != null){
+     <div>
+     @{
+     await Html.RenderPartialAsync("BarraUsuario");
+     }
+
+     </div>
+ }
+
+
+
+<div class="container-fluid px-0 mx-0">
+
+<!--
+<div class="container-fluid hoverable-topic">
+olds entete -->
+
+    <div class="row">
+       <div class="col-12 pb-2 borda-principal"  style="background-color: rgba(51,178,255,0.5);" >
+            <br/>               
+            <h1 class="text-center"> POLITICA DA EMPRESA</h1>
+        </div>    
+    </div>
+
+   <div class="row">
+        <div class="col-md-12 pb-2  borda-principal " >
+
+               <br/>               
+
+               <p class="text-justify" id="Alinha-Texto"> 
+               Cliente ->> Atender os desejos dos nossos clientes, com produtos de alta qualidade, garantindo a melhor serviço com qualidade, amor e tranparencia.
+               </p>
+
+               <p class="text-justify" id="Alinha-Texto">
+               Fornecedor ->> Prestar o melhor serviço aos nosso clientes, sempre com muito amor e qualidade 
+               <p>
+
+               <p class="text-justify" id="Alinha-Texto">
+               Servicos  ->> Estabelecer processos seguros e estáveis, buscando a melhoria contínua e redução de custos de produção. Ser simples e eficaz.
+               <p>
+               
+               <p class="text-justify" id="Alinha-Texto">
+                Sociedade: Contribuir para o desenvolvimento econômico da região dando ênfase aos cuidados com o Meio Ambiente.
+               </p>
+             
+               <p class="text-justify" id="Alinha-Texto">
+               Colaboradores --> Estimular e motivar os colaboradores para o desenvolvimento pessoal e profissional, promovendo ambiente de trabalho seguro e harmonioso em nossa empresa.
+              </p>           
+           
+               </br>
+         </div>   
+     </div>
+
+</div>
+

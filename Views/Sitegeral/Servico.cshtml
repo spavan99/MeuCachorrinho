@@ -1,0 +1,166 @@
+@using Microsoft.AspNetCore.Http
+
+@{
+    Layout = "_LayoutPagina";
+    ViewData["Title"] = "Servico";
+}
+
+@if(Context.Session.GetInt32("idUsuario") != null){
+     <div>
+     @{
+     await Html.RenderPartialAsync("BarraUsuario");
+     }
+
+     </div>
+ }
+
+
+<div class="container-fluid px-0 mx-0">
+
+    <div class="row">
+       <div class="col-12 pb-2 borda-principal"  style="background-color: rgba(51,178,255,0.5);" >
+            <br/>               
+            <h1 class="text-center"> NOSSOS SERVIÇOS</h1>
+        </div>    
+    </div>
+
+    <div class="row">
+        <div class="col-12 pb-2 " >
+            <br/>               
+            <h3 class="text-center"> Temos como objetivo de aproximar a necessidade dos Clientes com a disponiblidade de serviços dos Fornecedores.</h2>
+        </div>
+    </div>
+
+    <div class="row  borda-principal py-5"  style="background-color: rgba(51,178,255,0.5);">
+
+        <div class="col-md-3 px-0" style="text-align: center; ">
+          <div class="btn-group botao-tamanho"  >
+              <input type="button" class="botao-menu-banho botao-redondo"   data-toggle="modal" data-target="#modalBanho" >
+          </div>
+        </div>
+        <div class="col-md-3 px-0" style="text-align: center; ">
+            <div class="btn-group botao-tamanho" >
+                <input type="button" class="botao-menu-passear botao-redondo"  data-toggle="modal" data-target="#modalPassear">
+            </div>
+        </div>
+        <div class="col-md-3 px-0" style="text-align: center; ">
+            <div class="btn-group botao-tamanho" >
+                <input type="button" class="botao-menu-hotel botao-redondo"  data-toggle="modal" data-target="#modalHotel">
+            </div>
+          </div>
+          <div class="col-md-3 px-0" style="text-align: center; ">
+            <div class="btn-group botao-tamanho" >
+                <input type="button" class="botao-menu-veterinario botao-redondo"  data-toggle="modal" data-target="#modalVeterinario">
+            </div>
+          </div>
+     </div>
+ 
+</div>
+
+<!-- Modal  servico Banho-->
+<div class="modal fade" id="modalBanho" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Serviço de Banho</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+     
+          <p id="Alinha-Texto"> O melhor maneira de deixar o seu amigo e amor da sua vida bonito 
+              e cheiroso e proporcionar melhor tratamento com banhos adequado
+              com especilista na nossa lista.
+           </p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal  servico Passear-->
+<div class="modal fade" id="modalPassear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Serviço de Passear</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+     
+          <p id="Alinha-Texto"> Muitos de nossos clientes em virtude da sua vida atarefa mas
+              sempre pensando no bem estar do seus Pets, agora tem a possibilidade
+              de selecionar pessoas que tem tempo para poder levar o seu PEts para
+              passear permitindo assim amenizar o strees e melhorar a qualidade de
+              vida de ambos (seu Pet e Você)
+              
+           </p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal  servico hotel-->
+<div class="modal fade" id="modalHotel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Serviço de Hotel</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+     
+          <p id="Alinha-Texto"> Muitos de nossos clientes precisam fazer viagnes e ai surge
+              o problema com a seus Pets:  Onde Deixa-los ?  Para isto
+              temos a melhores seleções de forencedores de serviços 
+              de hotel, sempre visando a satisfação, qualidade e bem estar do seu Pet.
+
+           </p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal  servico vetrinario-->
+<div class="modal fade" id="modalVeterinario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Serviço de Veterinario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+          <p id="Alinha-Texto"> Os serviçoes veterinarios tem como função aproximar as necessidades
+              de cuidados especiais necessario para o seu Pets com os melhores
+              especialista da área veterinaria ou para a saúde e bem estar para o 
+              o seu Pet.button
+           </p>
+     </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>

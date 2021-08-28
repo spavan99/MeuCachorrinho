@@ -1,0 +1,266 @@
+@model servico
+
+@{
+    Layout = "_LayoutPagina";
+    ViewData["Title"] = "Cadastro de Servico";
+    string ntemacao = "";
+    if( ViewBag.AcaoFomulario == "VER" || ViewBag.AcaoFomulario == "DELETAR"){
+        ntemacao = "disabled";
+    }  
+ 
+}
+
+@if( ViewBag.Mensagem != null ){
+    <div class="alert alert-danger" role="alert">
+        <p id="pMensagem">@ViewBag.Mensagem</p>
+    </div>
+}
+
+
+<div class="mx-0 px-0">
+    @{
+  
+    await Html.RenderPartialAsync("BarraUsuario");
+    }
+
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="row Cadastro-Titulo borda-principal">
+       <div class="col-8" >
+            <h5 id="pad-titulo-1"> CADASTRO DE SERVICO </h5>
+        </div>   
+       <div class="col-4" >
+            <h5  id="pad-titulo-2" > @ViewBag.TituloPrincipal </h5>
+        </div>   
+    </div>
+
+
+   <!-- cadastro do Servico  -->
+   <form class="mb-2 py-2 Cadastro-Dados borda-principal" id="meu-form-servico" asp-action="CadastroServico" asp-controller="Servico" enctype="multipart/form-data" method="POST">
+ 
+       <!-- controle do formulario esta hildem -->
+       <input  asp-for="idServico" type="text" class="form-control" name="idServico" id="idServico" readonly hidden>
+
+    <!-- desabilitar form caso de VER e DELETAR --> 
+    <fieldset @ntemacao >
+        <div class="form-group row px-2" >
+  
+            <div class="col-sm-2 ">
+                <label for="text" class="col-form-label">Tipo Serviço:</label>
+                <select asp-for="tipoServico" class="form-control" id="tipoServico" required>
+                    @{
+                        int tam = ViewBag.Pessoa.Length;
+                        
+                        for( int i=0; i < tam; i++){
+                                                        
+                             string pTeste = ViewBag.Pessoa[i];
+                             if( i == 0  && ViewBag.SelPessoa == ""){
+                                 <option disabled selected > @ViewBag.Pessoa[i]</option>;
+                             }else{
+                                if(  pTeste == ViewBag.SelPessoa ){
+                                    <option selected > @ViewBag.Pessoa[i]</option>;           
+                                }else{
+                                    <option > @ViewBag.Pessoa[i]</option>;           
+                                }
+                             }
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="col-sm-10 ">
+                <label for="text" class="col-form-label">Nome do Servico:</label>
+                <input  asp-for="nomeServico" type="text" class="form-control" name="nomeServico" id="nomeServico" required>
+            </div>
+ 
+ 
+        </div>
+
+      <div class="form-group row px-2">
+            <div class="col-sm-12">
+                <label for="text" class="col-form-label ">Detalhe do Servico: </label>
+                <textarea asp-for="detalheServico" rows="5" class="form-control" id="detalheServico"  >
+                </textarea>
+            </div>
+
+        </div>
+
+      <div class="form-group row px-2" >
+  
+            <div class="col-sm-2 ">
+                <label for="text" class="col-form-label">Estado Serviço:</label>
+                <select asp-for="estadoServico" class="form-control" id="estadoServico" required>
+                    @{
+                        int ntam = ViewBag.EstadoBrasil.Length;
+                        
+                        for( int i=0; i < ntam; i++){
+                                                        
+                             string pTeste = ViewBag.EstadoBrasil[i];
+                             if( i == 0  && ViewBag.SelEstado == ""){
+                                 <option disabled selected > @ViewBag.EstadoBrasil[i]</option>;
+                             }else{
+                                if(  pTeste.Substring(0,2) == ViewBag.SelEstado ){
+                                    <option selected > @ViewBag.EstadoBrasil[i]</option>;           
+                                }else{
+                                    <option > @ViewBag.EstadoBrasil[i]</option>;           
+                                }
+                             }
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="col-sm-8 ">
+                <label for="text" class="col-form-label">Cidade Prestacao do Servico:</label>
+                <input  asp-for="cidadeServico" type="text" class="form-control" name="cidadeServico" id="cidadeServico" required>
+            </div>
+
+            <div class="col-sm-2 ">
+                <label for="text" class="col-form-label">Valor Serviço:</label>
+                 <input asp-for="valorServico" type="number" step="any" min="0.00" max="99999999999.99" class="form-control" id="valorServico">
+            </div>
+        </div>
+
+       <div class="form-group row px-2">
+      
+           <div class="col-sm-6">
+                <label for="text" class="col-form-label ">Selecionar Foto Servico: </label>
+                <input type="file" multiple class="form-control " name="selFoto" id="selFoto" accept="image/*">
+ 
+                <label for="text" class="col-form-label ">Nome Foto Gravar: </label>
+                <input asp-for="fotoServico" type="text" class="form-control" id="fotoServico"  readonly >
+ 
+                 <label for="text" class="col-form-label ">Id Fornecedor </label>
+                 <input asp-for="idForServico" type="text" class="form-control" id="idForServico" readonly>
+            </div>
+
+
+<!--            
+            <div class="col-sm-4">
+                <label for="text" class="col-form-label ">Selecionar Foto Servico: </label>
+                <input type="file" multiple class="form-control " name="selFoto" id="selFoto" accept="image/*">
+            </div>
+  
+           <div class="col-sm-2">
+                <label for="text" class="col-form-label ">Nome Foto Gravar: </label>
+                <input asp-for="fotoServico" type="text" class="form-control" id="fotoServico" readonly >
+            </div>
+
+                <img class="img-fluid" src="/imagens/imageminicial2.png" alt="Imagem Servico" width="200" height="200">   
+
+-->   
+
+           <div class="col-sm-6">
+                @if(  ViewBag.AcaoFomulario == "CADASTRADO"){
+                   <img class="img-fluid" src="/imagens/imageminicial2.png" alt="Imagem Servico" width= "400px" height="500px">   
+                }else{
+                   <img class="img-fluid" src="/fotos/recebidas/@ViewBag.ImagemFoto" alt="Imagem Servico" width= "400px" height="500px">   
+                }    
+
+              </div>
+
+        </div>    
+
+<!--
+        <div class="form-group row px-2">
+          
+            <div class="col-sm-3 ">
+                <label for="text" class="col-form-label">Valor Serviço:</label>
+                <input asp-for="valorServico" type="number" step="0.01" min="0" lang="en"  value="0.00" class="form-control" id="valorServico">
+            </div>
+      
+            <div class="col-sm-4">
+                <label for="text" class="col-form-label ">Id Fornecedor </label>
+                <input asp-for="idForServico" type="text" class="form-control" id="idForServico" readonly>
+            </div>
+
+        </div>
+
+-->
+
+    </fieldset>
+
+       <div class="form-group row px-2 py-2">
+            <div class="col-sm-8">
+                <button type="submit" id="BtCadServico"  name="BtCadServico"  value="CANCELAR" class="btn btn-primary " formnovalidate >Voltar</button>
+                @if(  ViewBag.AcaoFomulario == "CADASTRADO"){
+                   <button type="submit" id="BtCadServico"  name="BtCadServico"  value="SALVARCADASTRO" class="btn btn-success ">Salvar Cadastro</button>
+                }
+                @if(  ViewBag.AcaoFomulario == "EDITAR"){
+                    <button type="submit" id="BtCadServico"  name="BtCadServico"  value="ALTERACAO" class="btn btn-success ">Alterar Cadastro</button>
+                }
+                @if(  ViewBag.AcaoFomulario == "DELETAR"){
+                    <button type="submit" id="BtCadServico"  name="BtCadServico"  value="DELETAR" class="btn btn-success ">Confirmar Exclusão</button>
+                }
+
+            </div>
+        </div>    
+
+ 
+    </form>
+
+</div>
+
+
+<script type="text/javascript">
+
+
+   $(document).ready(function(){
+        
+        $('#valorServico').mask('999,999,990.00', {reverse: true});  
+        // valor do serviço
+    });
+ 
+ 
+$(document).ready( function() {
+	$("#meu-form-servico").validate({
+		/* REGRAS DE VALIDAÇÃO DO FORMULÁRIO */
+		rules:{
+			tipoServico:{
+				required: true /* Campo obrigatório */
+			},
+            nomeServico:{
+                required: true,
+                minlength: 10
+            },
+			estadoServico:{
+				required: true /* Campo obrigatório */
+			},
+            cidadeServico:{
+                required: true,
+                minlength: 3
+            },
+            valorServico:{
+                required: true
+            }
+		},
+		/* DEFINIÇÃO DAS MENSAGENS DE ERRO */
+		messages:{
+			tipoServico:{
+				required: "Tipo Necessário"
+			},
+            nomeServico:{
+                required: "Informar o Srviço",
+                minlength: "Minimo 10 digitos"
+            },
+			estadoServico:{
+				required: "Estado necessario",
+ 			},
+            cidadeServico:{
+                required: "Cidade  Necessário",
+                minlength: "Cidade Errada"
+            },
+            valorServico:{
+                required: "Valor Serviço"
+            }
+		},
+	});
+});
+
+
+</script>

@@ -1,0 +1,84 @@
+
+@model IEnumerable<cliente>
+
+@{
+    ViewData["Title"] = "Cadastro de Cliente - Grid";
+}
+
+
+@if( ViewBag.Mensagem != null ){
+    <div class="alert alert-danger" role="alert">
+        <p id="pMensagem">@ViewBag.Mensagem</p>
+    </div>
+}
+
+@{
+    await Html.RenderPartialAsync("_FerramentaFooter");
+}
+
+
+ <div class="container-fluid mx-0 px-0" >
+    <div class="row ">
+       <div class="col-md-12 mx-2 my-2 borda-principal Listagem-Titulo" >
+            <br>        
+            <h2  id="pad-listagem-1"> Cadastro de Cliente </h2>
+            <br/>
+       </div>    
+    </div>
+ </div>
+
+ <div class="container-fluid mx-1 px-1" > 
+            <table class="table table-striped table-hover" id="minhaTabela" >
+                <thead>
+                    <tr>
+                        <th scope="col">
+                           <a href="/Cliente/CadastroCliente" class="btn btn-success btnsm">Cadastrar</a>  
+                        </th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome Cliente</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Cidade</th>
+                        <th scope="col">Celular</th>
+                        <th scope="col">Tel Residecial</th>
+                        <th scope="col">Tel Comercial</th>
+                        <th scope="col">1-PF 2-PJ</th>
+                    </tr>
+                </thead>
+
+                <tbody >
+                    @foreach (cliente a in Model)
+                    {
+                        <tr >
+ 
+                            <td id="a.idCliente"  class="actions">
+
+                                  <a href="/Cliente/EditarCliente/@a.idCliente" >
+                                      <img src="/icones/edit2.png"  width="25" height="25">
+                                  </a>
+                                  <a href="/Cliente/VerCliente/@a.idCliente" >
+                                      <img src="/icones/ver.png"  width="25" height="25">
+                                  </a>
+                                  <a href="/Cliente/DeletarCliente/@a.idCliente" >
+                                      <img src="/icones/delete.png"  width="25" height="25">
+                                  </a>
+                            </td> 
+                            <td >@a.idCliente</td>
+                            <td>@a.nomeCliente</td>
+                            <td>@a.estadoCliente</td>
+                            <td>@a.cidadeCliente</td>
+                            <td>@a.tel1Cliente</td>
+                            <td>@a.tel2Cliente</td>
+                            <td>@a.tel3Cliente</td>
+                             @if( a.pessoaCliente == "1"){
+                                <td>"1-Fisíca"</td>
+                             }else{
+                                <td>"2-Juridica"</td>
+                             }
+                        
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            </br>
+
+    </div>

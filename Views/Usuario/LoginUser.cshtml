@@ -1,0 +1,57 @@
+@model usuario
+
+<link rel="stylesheet" href="~/css/sitepet.css" />
+
+@{
+    ViewData["Title"] = "Login de Usuario";
+
+}
+
+@if( ViewBag.Mensagem != null ){
+    <div class="alert alert-danger" role="alert">
+        <p id="pMensagem">@ViewBag.Mensagem</p>
+    </div>
+}
+
+<div class="container px-3 incol-block-center"  >
+
+    <div class="row mb-2" >
+       <div class="col-md-8  my-2 offset-md-2 "  style="@ViewBag.SytleTop border: 1px solid black" >
+            <br/>               
+            <h2 class="text-center font-weight-bold"> @ViewBag.TituloPrincipal</h2>
+            <br/>
+                <a asp-area="" asp-controller="Usuario" asp-action="CadUserNaoLogado">
+                   <h6 class="text-center"> Caso nao tenha cadastro clique aqui para fazer seu CADASTRO </h6>
+                </a>   
+            <br/>
+
+        </div>    
+    </div>
+
+    <div class="row " >
+       <div class="col-md-8 offset-md-2 "  style="@ViewBag.SytleLogin; border: 1px solid black" >
+           <form  id="Login" style="@ViewBag.SytleLogin"  asp-controller="Usuario" asp-action="LoginUser" method="POST" >
+
+                </br>
+                <div class="row">
+                    <div class="col-md-4 form-group"> 
+                        <label>Usuario:</label>
+                        <input asp-for="loginUsuario" placeholder="Usuario/Login" />
+                    </div>  
+                    <div class="col-md-4 form-group" >
+                        <label>Senha:</label>
+                        <input asp-for="senhaUsuario"  placeholder="Senha">
+                    </div>  
+
+                    <div class="col-md-4 form-group center-justific">
+                       <button type="submit" class="btn btn-success btn-lg btn-block ">Login/Acesso</button>
+                    </div>  
+                </div>
+                <br/>
+           </form>
+
+       </div>
+    </div>   
+</div>
+
+

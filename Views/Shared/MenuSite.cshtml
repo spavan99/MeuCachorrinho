@@ -1,0 +1,67 @@
+
+
+<style>
+#mySidenav a {
+  position: fixed;
+  /*position: absolute; */
+  left: -80px;
+  transition: 0.5s;
+  padding: 15px;
+  /*width: 100px;*/
+   width: 130px;
+  height: 45px;
+  /* width: 100px; */
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  z-index: 100;
+  
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#banho {
+/*  top: 20px; */
+  top: 240px;
+  background-color: #4CAF50;
+}
+
+#passeio {
+/*  top: 80px; */
+  top: 290px;
+  background-color: #2196F3;
+}
+
+#hotel {
+/*  top: 140px; */
+  top: 340px;
+  background-color: #f44336;
+}
+
+#veter {
+ /* top: 200px; */
+  top: 390px;
+  background-color: #555;
+}
+
+#home {
+ /* top: 200px; */
+  top: 440px;
+  background-color: black;
+}
+
+
+</style>
+
+
+<div id="mySidenav" class="sidenav">
+  <a asp-controller="Home" asp-action="Index" id="banho">Home</a>
+  <a asp-controller="Sitegeral" asp-action="Sobrenos" id="passeio">Quem Somos</a>
+  <a asp-controller="Sitegeral" asp-action="Servico" id="hotel">Servico</a>
+  <a asp-controller="Sitegeral" asp-action="Fazercontas" id="veter">Fazer Contas</a>
+  <a asp-controller="Sitegeral" asp-action="Politica" id="home">Politicas</a>
+
+</div>

@@ -1,0 +1,36 @@
+
+<!-- MENU  DAS PAGINAS DO SITE -->
+@{
+    string pStyle = "font-size:  90%;";
+}
+
+<script></script>
+
+<div class="container-fluid px-0 mx-0">
+    <nav class="navbar navbar-default navbar-expand-sm  navbar-toggleable-sm navbar-dark bg-primary"  >
+        <div class="navbar-header">  
+            <a class="navbar-brand"  asp-area="" asp-controller="Home" asp-action="Index"  style="@pStyle; margin-left:10px" >Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="menu-paginas">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link text-dark " asp-area="" asp-controller="Sitegeral" asp-action="Sobrenos"  style="@pStyle">Quem Somos |</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark " asp-area="" asp-controller="Sitegeral" asp-action="Servico"  style="@pStyle">Serviços |</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark " asp-area="" asp-controller="Sitegeral" asp-action="Fazercontas" style="@pStyle">Fazer Contas |</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark " asp-area="" asp-controller="Sitegeral" asp-action="Politica" style="@pStyle">Politicas |</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

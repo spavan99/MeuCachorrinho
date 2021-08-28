@@ -1,0 +1,88 @@
+@using Microsoft.AspNetCore.Http
+
+@{
+    Layout = "_LayoutPagina";
+    ViewData["Title"] = "Facil";
+
+}
+
+ @if(Context.Session.GetInt32("idUsuario") != null){
+     <div>
+     @{
+     await Html.RenderPartialAsync("BarraUsuario");
+     }
+
+     </div>
+ }
+
+
+<div class="container-fluid px-0 mx-0">
+
+ 
+    <div class="row">
+
+       <div class="col-12 pb-2 borda-principal"  style="background-color: rgba(51,178,255,0.5);" >
+            <br/>               
+            <h1 class="text-center"> VEJA COMO É FACIL ACESSAR O SERVIÇO</h1>
+        </div>    
+    </div>
+
+    <div class="row">
+       <div class="col-12 pb-2 "  style="background-color: rgba(51,178,255,0.1);" >
+            <br/>               
+            <p class="text-center" id="Alinha-Texto"> 1) Fazer Conta: e simples e rápido, voce cria sua conta para
+                                    permitir acessoa ao sistema tanto na área de cliente como na 
+                                    área de fornecedor, basta escolher a modalidade que você se encaixa </p>
+        </div>    
+     </div>     
+
+     <div class="row">
+       <div class="col-6 pb-2 "  style="background-color: rgba(51,178,255,0.3);" >
+            <br/>               
+            <p class="text-center" id="Alinha-Texto"> C L I E N T E: você que é dono de Pet e deseja ter acesso
+                                    aos mais diversos tipos de serviço para sua Pet amando
+                                    esté é o lugar certo. Somente escolha a opção CLIENTE e
+                                    em poucos clicks está terá acesso aos serviços tão desejados
+                                    e esperado para o seu Pet.
+                                     </p>
+        </div>    
+        <div class="col-6 pb-2 "  style="background-color: rgba(51,178,255,0.5);" >
+            <br/>               
+            <p class="text-center" id="Alinha-Texto"> F O R N E C E D O R: vocês que tem conhecimento e esta
+                                    habilitado para fornecer e prestar os diversos serviços
+                                    de qualidade e com os padrões estabelecidos pode se 
+                                    cadastrar e ter acesso a uma clientela cativa. Somente escolha 
+                                    a opção FORNECEDOR e em poucos clicks está terá poderá 
+                                    cadastrar seus serviçoes e disponibiliza-los no site.
+                                     </p>
+        </div>    
+    </div>
+
+     <div class="row">
+       <div class="col-12 pb-2 "  style="background-color: rgba(51,178,255,0.1);" >
+            <br/>               
+            <p class="text-center" id="Alinha-Texto"> 2) Busque o Serviço: escolha entre os mais diverso serviços
+                                    disponibilizado para seu Pet. Depois somente selecione o local
+                                    que necessidata para a prestação de serviço e terá acesso a
+                                    milhares de seriços de qualidade e segurança sempre prestado
+                                    com todo carinho e amor ao seu Pet.
+                                   </p>
+        </div>    
+     </div>     
+
+
+    <div class="row">
+       <div class="col-12 pb-2 "  style="background-color: rgba(51,178,255,0.3);" >
+            <br/>               
+            <p class="text-center" id="Alinha-Texto"> 3) Contrate o Serviço: com base em sua pesquisa
+                                    selecione o serviço mais adequado para você e seu Pet
+                                    e simplemente contrate o prestador de serviço e desfrute
+                                    de toda segurança e qualidade.
+                                   </p>
+        </div>    
+     </div>     
+
+</div>
+
+
+

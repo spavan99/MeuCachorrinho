@@ -1,0 +1,71 @@
+
+<!--    esta fucionando somente melhorar cores e posiccao  BOMMMM- -->
+<!--
+<meta name="viewport" content="width=device-width, initial-scale=1">
+-->
+
+<style>
+#mySidenav a {
+  position: fixed;
+  /*position: absolute; */
+  left: -80px;
+  transition: 0.5s;
+  padding: 15px;
+  /*width: 100px;*/
+   width: 130px;
+  height: 45px;
+  /* width: 100px; */
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  z-index: 100;
+  
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#banho {
+/*  top: 20px; */
+  top: 240px;
+  background-color: #4CAF50;
+}
+
+#passeio {
+/*  top: 80px; */
+  top: 290px;
+  background-color: #2196F3;
+}
+
+#hotel {
+/*  top: 140px; */
+  top: 340px;
+  background-color: #f44336;
+}
+
+#veter {
+ /* top: 200px; */
+  top: 390px;
+  background-color: #555;
+}
+
+#home {
+ /* top: 200px; */
+  top: 440px;
+  background-color: black;
+}
+
+
+</style>
+
+
+<div id="mySidenav" class="sidenav">
+  <a asp-controller="Sitegeral" asp-action="Banho" id="banho">Banho</a>
+  <a asp-controller="Sitegeral" asp-action="Passear" id="passeio">Passeio</a>
+  <a asp-controller="Sitegeral" asp-action="Hotel" id="hotel">Hotel</a>
+  <a asp-controller="Sitegeral" asp-action="Veterinario" id="veter">Veterinario</a>
+  <a asp-controller="Home" asp-action="Index" id="home">Home</a>
+
+</div>

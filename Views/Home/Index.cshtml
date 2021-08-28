@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "MeuCachorrinho";
+}
+
+
+<div class="contanir-fluid px-0 mx-0">
+
+       @{
+                //await Html.RenderPartialAsync("_TelaMenuInicial");
+                await Html.RenderPartialAsync("_MenuInicialSERV");
+        }
+
+        <div class="row">
+            <div class="col-12 text-center py-2"  id="Cor-Tela-Principal-1" >
+                   </br>
+                   <h4 style="font-weight: bold;"> VEJA COMO É FACIL ACESSAR O SERVIÇO</h4>
+            </div>
+        </div> 
+ 
+        <div class="row py-5" id="Cor-Tela-Principal-1">
+            
+            <div class="col-sm-3  col-12  my-2">
+                    <div class="btn-group col justify-content-center" >
+                        <a href="/Sitegeral/Fazercontas">
+                            <button type="button" class="btn-outline-danger btn-lg" >Faça Sua Conta</button>
+                        </a> 
+                    </div>
+            </div>
+            
+            <div class="col-sm-3 col-12 my-2">
+                    <div class="btn-group col justify-content-center" >
+                        <a href="/Sitegeral/Facil">
+                            <button type="button" class="btn btn-outline-dark btn-lg"   > 1) Cadastre Seu Perfil</button>
+                        </a>
+                    </div>
+            </div>
+            
+            <div class="col-sm-3   col-12 my-2">
+                    <div class="btn-group col justify-content-center" >
+                        <a href="/Sitegeral/Facil">
+                            <button type="button" class="btn btn-outline-dark btn-lg" >2) Busque o Serviço</button>
+                        </a>
+                    </div>
+            </div>
+            
+            <div class="col-sm-3 col-12 my-2">
+                    <div class="btn-group col justify-content-center" >
+                        <a href="/Sitegeral/Facil">
+                            <button type="button" class="btn btn-outline-dark btn-lg" > 3) Contrate o Serviço</button>
+                        </a>
+                    </div>
+            </div>
+        
+        </div>
+
+
+</div>
+

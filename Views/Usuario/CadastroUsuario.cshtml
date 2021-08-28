@@ -1,0 +1,213 @@
+@using Microsoft.AspNetCore.Http
+
+@model usuario
+
+
+@{
+    Layout = "_LayoutPagina";
+    ViewData["Title"] = "Cadastro de Usuario";
+    string ntemacao = "";
+    if( ViewBag.AcaoFomulario == "VER" || ViewBag.AcaoFomulario == "DELETAR"){
+        ntemacao = "disabled";
+    }  
+
+}
+
+@if( ViewBag.Mensagem != null ){
+    <div class="alert alert-danger" role="alert">
+        <p id="pMensagem">@ViewBag.Mensagem</p>
+    </div>
+}
+
+
+<div class="mx-0 px-0">
+    @{
+  
+    await Html.RenderPartialAsync("BarraUsuario");
+    }
+
+</div>
+
+
+<div class="container">
+
+    <div class="row Cadastro-Titulo borda-principal">
+       <div class="col-8" >
+            <h5 id="pad-titulo-1"> CADASTRO DE USUARIO </h5>
+        </div>   
+       <div class="col-4" >
+            <h5  id="pad-titulo-2" > @ViewBag.TituloPrincipal </h5>
+        </div>   
+    </div>
+
+
+   <!-- cadastro do cliente -->
+   <form class="mb-2 py-2 Cadastro-Dados borda-principal"  id="meu-form-pet-usuario" asp-action="CadastroUsuario" asp-controller="Usuario" method="POST">
+
+       <!-- controle do formulario esta hildem -->
+       <input  asp-for="idUsuario" type="text" class="form-control" name="idUsuario" id="idUsuario" readonly hidden>
+
+    <!-- desabilitar form caso de VER e DELETAR --> 
+    <fieldset @ntemacao >
+        <div class="form-group row px-2" >
+  
+            <div class="col-sm-6 ">
+                <label for="text" class="col-form-label">Login:</label>
+
+                @if(  ViewBag.AcaoFomulario == "CADASTRADO"){
+                   <input  asp-for="loginUsuario" type="text" class="form-control" name="loginUsuario" id="LoginUsuario" required>
+                }else{
+                   <input  asp-for="loginUsuario" type="text" class="form-control" name="loginUsuario" id="LoginUsuario" required readonly>
+                }
+
+            </div>
+
+            <div class="col-sm-6">
+                <label for="text" class="col-form-label ">e-mail </label>
+                <input asp-for="emailUsuario " type="email"  class="form-control" id="emailUsuario" required >
+            </div>
+        </div>
+
+      <div class="form-group row px-2">
+            <div class="col-sm-4">
+                <label for="text" class="col-form-label ">Senha </label>
+                <input asp-for="senhaUsuario" type="password" class="form-control" id="senhaUsuario" required>
+            </div>
+            <div class="col-sm-4 ">
+                <label for="text" class="col-form-label">Tipo Usuario':</label>
+                <select asp-for="tipoUsuario" class="form-control" id="tipoUsuario" required>
+                       @if(  ViewBag.SelUsuario == ""){
+                          <option selected disabled>Selecione Tipo Cliente</option>
+                       }                       
+                       @if(  ViewBag.SelUsuario == "1"){
+                          <option selected > 1 - Cliente </option>
+                       }else{
+                          <option > 1 - Cliente </option>
+                       }
+                       @if(  ViewBag.SelUsuario == "2"){
+                           <option selected> 2 - Fornecedor</option>
+                       }else{
+                          <option > 2 - Fornecedor </option>
+                       }   
+                </select>       
+            </div>
+            <div class="col-sm-4">
+                <label for="text" class="col-form-label ">Data Cadastro: </label>
+                @if(  ViewBag.AcaoFomulario == "CADASTRADO"){
+                   <input  asp-for="dtcadUsuario" type="date" class="form-control" name="dtcadUsuario" id="no-spin" onkeypress="return false" min="" max="">
+                }else{
+                   <input  asp-for="dtcadUsuario" type="date" class="form-control" name="dtcadUsuario" id="no-spin" onkeypress="return false" min="" max="" readonly>
+                }
+            </div>
+        
+        </div>
+
+    </fieldset>
+
+       <div class="form-group row px-2 py-2">
+            <div class="col-sm-8">
+                @if(Context.Session.GetInt32("idUsuario") != null){
+                   <button type="submit"  name="BtCadastro"  value="CANCELAR2" class="btn btn-primary " formnovalidate >Voltar</button>
+                }else{
+                   <button type="submit"  name="BtCadastro"  value="CANCELAR" class="btn btn-primary " formnovalidate >Voltar</button>
+                }
+                @if(  ViewBag.AcaoFomulario == "CADASTRADO"){
+                   <button type="submit"  name="BtCadastro"  value="SALVARCADASTRO" class="btn btn-success ">Salvar Cadastro</button>
+                }
+                @if(  ViewBag.AcaoFomulario == "EDITAR"){
+                   <button type="submit"  name="BtCadastro"  value="ALTERACAO" class="btn btn-success ">Alterar Cadastro</button>
+                }
+                @if(  ViewBag.AcaoFomulario == "DELETAR"){
+                    <button type="submit"  name="BtCadastro"  value="DELETAR" class="btn btn-success ">Confirmar Exclusão</button>
+                }
+
+            </div>
+        </div>    
+
+ 
+    </form>
+
+</div>
+
+
+<script>
+
+/*
+    Date.prototype.yyyymmdd = function(days) {
+    var yyyy = this.getFullYear();
+    var mm = this.getMonth() < 9 ? "0" + (this.getMonth() + 1) : (this.getMonth() + 1); // getMonth() is zero-based
+    var dd = (this.getDate() < 10 ? "0" + this.getDate() : this.getDate()) + days;
+    return "".concat(yyyy).concat("-").concat(mm).concat("-").concat(dd);
+    };
+
+    var d = new Date();
+    var interval_min = d.yyyymmdd(0);
+    var interval_max = d.yyyymmdd(0);
+
+    document.getElementById("no-spin").setAttribute("min", interval_min);
+    document.getElementById("no-spin").setAttribute("max", interval_max);
+
+*/
+
+   // JQUERY mascara campos - foco todo formulario
+
+
+
+ /* - todas as mascaras desabilita por enquanto - fazer       
+
+  $(document).ready(function(){
+        $('#loginUsuario').mask('aaaaaaa');   // so minuscula  nao agora
+        $("#senhaUsuario").mask("(000)0-0000-0000");  // pode colocar regra nao agora
+        $("#emailUsuario").mask("(999)9999-9999");    // regra tem ter arroba  propria pagina
+        $("#tipoUsuario").mask("(999)9999-9999");    //obrigatorio --- select e a mascar
+   });
+*/
+ 
+
+$(document).ready( function() {
+	$("#meu-form-pet-usuario").validate({
+		/* REGRAS DE VALIDAÇÃO DO FORMULÁRIO */
+		rules:{
+			loginUsuario:{
+				required: true, /* Campo obrigatório */
+                minlength: 5    /* No mínimo 5 caracteres */
+			},
+            senhaUsuario:{
+                required: true,
+                minlength: 3
+            },
+			emailUsuario:{
+				required: true, /* Campo obrigatório */
+			},
+            tipoUsuario:{
+                required: true
+            },
+            datcadUsuario:{
+                required: true
+            }
+		},
+		/* DEFINIÇÃO DAS MENSAGENS DE ERRO */
+		messages:{
+			loginUsuario:{
+				required: "Preencher Nome de LOGIN do Usuário",
+				minlength: "Mínimo 5 caracteres"
+			},
+            senhaUsuario:{
+                required: "Senha Necessária",
+                minlength: "Minimo 3 caracteres"
+            },
+			emailUsuario:{
+				required: "Email valido necessário",
+			},
+            tipoUsuario:{
+                required: "Tipo Usuário Necessário"
+            },
+            dtcadUsuario:{
+                required: "Data Cadastro necessário"
+            }
+		},
+	});
+});
+
+
+</script>

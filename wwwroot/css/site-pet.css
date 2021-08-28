@@ -1,0 +1,813 @@
+/* DEFINIÇOES PADROES SITE */
+
+:root {
+    --my-tamanho-letra-padrao: 14px;
+    --my-tipo-letra-padrao: Arial, Helvetica, sans-serif;
+    --my-tam-celular: 600px;
+    --my-tam-tablet: 900px;
+    --my-tam-desktop: 1020px;
+    /* corres padroes */
+    --my-cor-site-tela-1: rgba(1, 178, 255, 0.5);
+    --my-cor-cadastro-titulo: rgb(32, 35, 233, 1);
+    --my-cor-cadastro-sombra: rgba(2, 6, 66, 0.55);
+    --my-cor-cadastro-sombra-2: rgba(2, 6, 66, 0.8);
+    /*
+  --my-cor-listagem-titulo: rgba(51,178,255,0.5);
+  */
+    --my-cor-listagem-titulo: rgb(70, 196, 228, 1);
+    --my-cor-listagem-sombra: rgba(2, 6, 66, 0.55);
+    --my-cor-cadastro-dados: rgba(51, 178, 255, 0.3);
+    --my-cor-site-1: red;
+    --my-titulo1-cor: rgba( 255, 255, 255, 1);
+    --my-titulo1-txt-tam: 2rem;
+    /* corres da area de servico */
+    --my-servico-abertura-cor: rgba(0, 0, 0, 1);
+}
+
+
+/* DEFINIÇOES PADROES SITE letra tamanho ettc */
+
+html {
+    margin: 0px;
+    padding: 0px;
+    font-size: var( --my-tamanho-letra-padrao);
+    font-family: var( --my-tipo-letra-padrao)
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* DEFINIÇOES tamanho da tela o o comportamento elementeos*/
+
+@media screen and (max-width: 900px) and (min-width: 600px) {
+    html {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 600px) and (min-width: 1px) {
+    html {
+        font-size: 0.6em;
+    }
+}
+
+
+/*********  FIM   DAS  DEFINIÇOES tamanho da tela o o comportamento elementeos*/
+
+
+/* BANNER SLID SHOW BOOTSTRAP
+ -------------------------------------------------- */
+
+#Banner-Inicial {
+    height: 130px;
+    background-color: rgba(51, 178, 255, 1);
+}
+
+#Banner-Inicial-logado {
+    height: 250px;
+    background-color: rgba(51, 178, 255, 1);
+}
+
+#Banner-Rotativo {
+    height: 300px;
+    background-color: rgba(51, 178, 255, 0.5);
+}
+
+#Banner-Rotativo-logado {
+    height: 250px;
+    background-color: rgba(51, 178, 255, 0.5);
+}
+
+
+/* FIM  BANNER  PRINCIPAL
+ -------------------------------------------------- */
+
+
+/* ferramenta/menu rodape ATIVA
+ -------------------------------------------------- */
+
+.fab-pet-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    user-select: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 100;
+    /* 
+  position: absolute;
+  bottom: 30px;
+  right: 30px; 
+  */
+}
+
+.fab-pet-container:hover {
+    height: 100%;
+}
+
+.fab-pet-container:hover .sub-button:nth-child(2) {
+    transform: translateY(-80px);
+    background-color: rgb(203, 96, 179, 1);
+}
+
+.fab-pet-container:hover .sub-button:nth-child(3) {
+    transform: translateY(-140px);
+    background-color: rgb(76, 175, 80, 1);
+}
+
+.fab-pet-container:hover .sub-button:nth-child(4) {
+    transform: translateY(-200px);
+    background-color: rgb(34, 153, 250, 1);
+}
+
+.fab-pet-container:hover .sub-button:nth-child(5) {
+    transform: translateY(-260px);
+    background-color: rgb( 244, 67, 54, 1);
+}
+
+.fab-pet-container:hover .sub-button:nth-child(6) {
+    transform: translateY(-320px);
+    /* background-color: rgb(85, 85, 85, 1); */
+    background-color: rgb( 210, 105, 30, 1);
+}
+
+
+/*
+    .fab-pet-container:hover .sub-button:nth-child(7) {
+      transform: translateY(-380px); }
+
+     /* cada menu acrescentar elemento filho e depois na div diferenca 60px  */
+
+.fab-pet-container .fab-pet {
+    position: relative;
+    height: 56px;
+    width: 56px;
+    background-color: rgb(91, 25, 183, 1);
+    border-radius: 50%;
+    color: white;
+    z-index: 2;
+}
+
+.fab-pet-container .fab-pet::before {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 35px;
+    width: 35px;
+    background-color: inherit;
+    border-radius: 0 0 10px 0;
+    z-index: -1;
+}
+
+.fab-pet-container .fab-pet .fab-pet-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.fab-pet-container .fab-pet .fab-pet-content .material-icons a {
+    color: white;
+    font-size: 12px;
+}
+
+.fab-pet-container .sub-button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 10px;
+    right: 10px;
+    height: 50px;
+    width: 50px;
+    background-color: #cb60b3;
+    border-radius: 50%;
+    /* transition: all .3s ease; */
+    -webkit-transition: all .1s ease-out;
+    transition: all .1s ease-out;
+}
+
+.fab-pet-container .sub-button:hover {
+    cursor: pointer;
+}
+
+.fab-pet-container .sub-button .material-icons {
+    color: white;
+    padding-top: 6px;
+}
+
+[mostratxt]:before {
+    bottom: 25%;
+    font-family: arial;
+    font-weight: 600;
+    border-radius: 2px;
+    background: rgba(1, 1, 1, 1);
+    color: #fff;
+    content: attr(mostratxt);
+    font-size: 12px;
+    transform: scaleX(0);
+    transform-origin: right;
+    padding: 5px 7px;
+    margin-right: 12px;
+    position: absolute;
+    right: 100%;
+    white-space: nowrap;
+    -webkit-transition: all .05s ease-out 0s;
+    transition: all .05s ease-out 0s;
+}
+
+.fab-pet-container:hover [mostratxt]:before {
+    transform: scaleX(1);
+    -webkit-transition: all .1s ease-out .18s;
+    transition: all .1s ease-out .18s;
+}
+
+
+/* FIM   ferramenta/menu rodape ATIVA
+ -------------------------------------------------- */
+
+
+/* ferramenta/menu rodape  0ld  nao funciona direito linl
+ -------------------------------------------------- */
+
+.ferr-footer {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 5;
+}
+
+.ferr-footer button {
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 30px;
+    background-color: #cb60b3;
+    border: none;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+    font-size: 20px;
+    color: white;
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    transition: .2s ease-out;
+}
+
+.ferr-footer button:focus {
+    outline: none;
+}
+
+.ferr-footer button.main {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #5b19b7;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+}
+
+.ferr-footer button.main:before {
+    font-size: 12px;
+    content: "";
+}
+
+.ferr-footer ul {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0;
+    padding-right: 5px;
+    margin: 0;
+    list-style: none;
+    z-index: 10;
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    transition: .2s ease-out;
+}
+
+.ferr-footer ul li {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    margin-bottom: -10%;
+    opacity: 0;
+    -webkit-transition: .3s ease-out;
+    -moz-transition: .3s ease-out;
+    transition: .3s ease-out;
+}
+
+.ferr-footer ul li label a {
+    margin-right: 10px;
+    white-space: nowrap;
+    display: block;
+    margin-top: 10px;
+    padding: 5px 8px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    border-radius: 3px;
+    height: 25px;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0;
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    transition: .2s ease-out;
+}
+
+.ferr-footer button.main:active,
+.ferr-footer button.main:focus {
+    outline: none;
+    /*
+  background-color: #7716ff;
+  */
+    background-color: red;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .5);
+}
+
+.ferr-footer button.main:active:before,
+.ferr-footer button.main:focus:before {
+    content: '';
+}
+
+.ferr-footer button.main:active+ul,
+.ferr-footer button.main:focus+ul {
+    bottom: 70px;
+}
+
+.ferr-footer button.main:active+ul li,
+.ferr-footer button.main:focus+ul li {
+    margin-bottom: 10px;
+    opacity: 1;
+}
+
+.ferr-footer button.main:active+ul li:hover label,
+.ferr-footer button.main:focus+ul li:hover label {
+    opacity: 1;
+}
+
+
+/* FIM   ferramenta/menu rodape
+ -------------------------------------------------- */
+
+
+/* rodape
+ -------------------------------------------------- */
+
+.Tipo-Rodape {
+    color: "";
+}
+
+#Rodape-Menu-link {
+    font-size: 90%;
+    margin-left: 25px
+}
+
+#Rodape-Direito-link {
+    font-size: 80%;
+    margin-right: 25px
+}
+
+
+/* FIM  rodape
+ -------------------------------------------------- */
+
+#Cor-Tela-Principal-1 {
+    background-color: var( --my-cor-site-tela-1);
+}
+
+.borda-principal {
+    border: 1px solid black;
+}
+
+.Cadastro-Titulo {
+    background-color: var( --my-cor-cadastro-titulo);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    color: white;
+    border-radius: 0.5em;
+    width: 100%;
+    box-shadow: 15px 12px 14px var( --my-cor-cadastro-sombra);
+}
+
+.Listagem-Titulo {
+    background-color: var( --my-cor-listagem-titulo);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+}
+
+.Cadastro-Dados {
+    background-color: var( --my-cor-cadastro-dados);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: black;
+    border-bottom-right-radius: 15%;
+    width: 100%;
+    box-shadow: 15px 12px 14px var( --my-cor-cadastro-sombra-2);
+}
+
+#pad-titulo-1 {
+    text-align: left;
+    font-size: 150%;
+    margin-left: 10px;
+    color: rgb( 255, 255, 255, 1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+#pad-titulo-2 {
+    text-align: right;
+    font-size: 120%;
+    font-weight: bold;
+    margin-left: 10px;
+    color: rgba(16, 182, 71, 1);
+    padding-top: 13px;
+}
+
+#pad-listagem-1 {
+    text-align: center;
+    font-size: 150%;
+    margin-left: 10px;
+    color: rgb(255, 255, 255, 1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+#Alinha-Texto {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: black;
+}
+
+
+/*/ estilizar erro da jquery valdete */
+
+label.error {
+    font-size: 85%;
+    border: 2px solid red;
+    color: red;
+    font-weight: bold;
+    padding: 5px;
+    background-color: #99CCFF;
+    text-align: center;
+    border-bottom-right-radius: 30%;
+    box-shadow: 5px 2px 14px rgba(29, 140, 231, 0.55);
+}
+
+.botao-tamanho {
+    width: 200px;
+    height: 130px;
+}
+
+.botao-redondo {
+    border-top-left-radius: 30%;
+    border-bottom-right-radius: 30%;
+    width: 95%;
+    height: 95%;
+    -webkit-box-shadow: -35px 32px 14px rgba(29, 140, 231, 0.55);
+    -moz-box-shadow: -35px 32px 14px rgba(29, 140, 231, 0.55);
+    box-shadow: -35px 32px 14px rgba(29, 140, 231, 0.55);
+}
+
+
+/* configuraca do arquivo menuservico.cs
+        -------------------------------------------------- */
+
+.Area-Site-Imgem {
+    /*height: 500px;*/
+    height: 100%;
+    width: 100%;
+    background-color: rgba(51, 178, 255, 0.5);
+    background-image: url("/imagens/paginaprincipal2.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.75;
+    border: 1px solid black;
+    ;
+}
+
+.botao-menu-banho {
+    background: url("/icones/banho1.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    height: 90%;
+    width: 90%;
+    outline: 0;
+    -moz-outline: 0;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.botao-menu-passear {
+    background: url("/icones/passeio1.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    height: 90%;
+    width: 90%;
+    outline: 0;
+    -moz-outline: 0;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.botao-menu-hotel {
+    background: url("/icones/hotel1.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    height: 90%;
+    width: 90%;
+    outline: 0;
+    -moz-outline: 0;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.botao-menu-veterinario {
+    background: url("/icones/veterinario1.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    height: 90%;
+    width: 90%;
+    outline: 0;
+    -moz-outline: 0;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.row-servico {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.area-esquerda {
+    flex: 70%;
+}
+
+.area-direita {
+    flex: 30%;
+}
+
+.Container-Serv {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    text-align: center;
+    flex-direction: row;
+    height: 90%;
+    width: 90%;
+    /* width:30;*/
+    margin: 5%;
+}
+
+.servico-menu {
+    /* flex: auto; */
+    font-size: 1.5rem;
+    margin: 0 1vw calc(1vw + 50px) 1vw;
+    position: relative;
+    min-width: calc(50% - 2vw);
+}
+
+.servico-menu:before {
+    content: "";
+    float: left;
+    padding-top: 100%;
+}
+
+.bota-servico-total {
+    /*
+    background: rgb( 204, 119, 34, 1);
+    
+    background: rgb( 218, 165, 32, 1);
+    
+    background-image: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    */
+    background-image: linear-gradient(90deg, #3411f8 0%, #f743f7 100%);
+    border-radius: 30%;
+    height: 90%;
+    margin: 5%;
+    position: absolute;
+    width: 90%;
+    vertical-align: middle;
+    z-index: 5000;
+}
+
+.servico-menu:hover .serv-effect-1,
+.servico-menu:hover .serv-effect-2 {
+    display: block;
+}
+
+.serv-effect-1,
+.serv-effect-2 {
+    border-radius: 30%;
+    display: none;
+    mix-blend-mode: multiply;
+    height: 94%;
+    opacity: 1;
+    position: absolute;
+    width: 94%;
+    z-index: 3000;
+}
+
+.serv-effect-1 {
+    animation: rotate 1.8s linear infinite;
+    background: cyan;
+}
+
+.serv-effect-2 {
+    animation: rotate 1.2s linear reverse infinite;
+    /* background: blueviolet; */
+    background: #e7a9ff;
+}
+
+@keyframes rotate {
+    0% {
+        top: 0;
+        left: 8%;
+    }
+    25% {
+        top: 8%;
+        left: 0%;
+    }
+    50% {
+        top: 16%;
+        left: 8%;
+    }
+    75% {
+        top: 8%;
+        left: 16%;
+    }
+    100% {
+        top: 0;
+        left: 8%;
+    }
+}
+
+.area-imagem-service {
+    background-image: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    border-radius: 5px;
+    height: 70%;
+    margin: 15%;
+    width: 70%;
+}
+
+@media (max-width: 800px) {
+    .area-esquerda {
+        flex: 100%;
+    }
+    .area-direita {
+        flex: 100%;
+    }
+    .Container-Serv {
+        height: 60%;
+        width: 50%;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+    .servico-menu {
+        min-width: calc(80% - 2vw);
+        align-self: center;
+    }
+}
+
+
+/* fim di arquivo configuraca do arquivo menuservico.cs
+          -------------------------------------------------- */
+
+
+/*
+
+       div.borda-principal { 
+        border: 1px solid black;
+        margin:auto 0 ;
+        padding: auto 0;
+
+        }
+
+        div.borda-principal-sombra { 
+         width:98%; 
+         margin:auto 0 ;   
+         border:0;
+         box-shadow: 10px 5px 5px black;
+         border-spacing: 1 solid black;
+        }
+/*
+
+
+
+        /* TABELA ESPECIFICAS GRID
+        -------------------------------------------------- */
+
+div.tab {
+    display: flex;
+    overflow: auto;
+    /*             position:sticky;
+                justify-content: center;
+ */
+}
+
+#minhaTabela {
+    width: 98%;
+    margin: 0 auto;
+    border: 0;
+    box-shadow: 0 5px 30px darkgrey;
+    border-spacing: 0;
+    /*                border-radius: 0.5em; */
+}
+
+#minhaTabela thead th {
+    font-weight: bold;
+    background-color: rgba(0, 0, 51, 1);
+    /*                background-color: rgba(51,178,255,1); */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0.4em;
+}
+
+#minhaTabela tr td {
+    padding: 5px 10px;
+    /*                text-align: center; */
+    text-align: left;
+    cursor: pointer;
+    /**importante para nÃ£o mostrar cursor de texto**/
+    border-radius: 0.5em;
+}
+
+#minhaTabela tr td:last-child {
+    text-align: right;
+}
+
+
+/**Cores**/
+
+#minhaTabela tr:nth-child(odd) {
+    background-color: #eee;
+}
+
+
+/**Cor quando passar por cima**/
+
+#minhaTabela tr:hover td {
+    background-color: #feffb7;
+}
+
+
+/**Cor quando selecionado**/
+
+#minhaTabela tr.selecionado td {
+    background-color: #aff7ff;
+}
+
+
+/* configuracao data - nao permitida
+        -------------------------------------------------- */
+
+#no-spin::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="date"] {
+    position: relative;
+    padding: 4px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: transparent;
+    background: none;
+    z-index: 1;
+}
+
+input[type="date"]:before {
+    color: transparent;
+    background: none;
+    display: block;
+    font-family: 'FontAwesome';
+    content: '\f073';
+    width: 15px;
+    height: 20px;
+    position: absolute;
+    top: 7px;
+    right: 6px;
+    color: #999;
+}

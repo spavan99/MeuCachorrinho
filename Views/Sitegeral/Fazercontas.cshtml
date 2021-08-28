@@ -1,0 +1,109 @@
+@using Microsoft.AspNetCore.Http
+
+@{
+    Layout = "_LayoutPagina";
+    ViewData["Title"] = "Fazer Contas";
+
+}
+
+ @if(Context.Session.GetInt32("idUsuario") != null){
+     <div>
+     @{
+     await Html.RenderPartialAsync("BarraUsuario");
+     }
+
+     </div>
+ }
+
+
+<div class="container-fluid px-0 mx-0">
+
+    <div class="row">
+       <div class="col-12 pb-2 borda-principal"  style="background-color: rgba(51,178,255,0.5);" >
+            <br/>               
+            <h1 class="text-center"> FAZER CONTAS</h1>
+        </div>    
+    </div>
+
+    <div class="row">
+       <div class="col-12 pb-2 borda-principal"  >
+            <br/>               
+            <h3 class="text-center" id="Alinha-Texto"> Se você Cliente ou Fornecedor que ainda não possui conta no
+              site MEU CACHORRINHO e tem muito amor para receber ou dar aos Pets, está e a 
+              oportunidade, para FAZER SUA CONTA e desfrutar de todo os beneficios do site</h3>
+        </div>    
+    </div>
+
+ 
+   <div class="row">
+        <div class="col-6 pb-4 " style="background-color: rgba(51,178,255,0.7)">
+             </br>
+             <h2 class="text-center"> Cliente </h2>  
+             </br>       
+             <p class="text-center" id="Alinha-Texto" > Aqui você que tem seu Pet, e precisa de serviços
+               com qualidade, confianças e sempre prestado com muito amor e carinho,
+               chegou a hora, click no batão abaixo e faça seu cadastro, é rapido,
+               fácil e seguro.
+             </p>
+             </br>
+        </div>
+
+        <div class="col-6 pb-4 " style="background-color: rgba(51,178,255,0.9)">
+             </br>
+             <h2 class="text-center"> Fornecedores </h2>         
+             </br>       
+             <p class="text-center" id="Alinha-Texto" > Aqui você que tem amor carinho e serviço
+               de qualidade com segurança para fornecer ao dono dos mais
+               amados e queridos Pets do mundo, chegou a sua hora de se cadastrar
+               para pode colocar demonstratar toda esta sua explosão de amor e
+               capacidade. 
+               CLICK no batão abaixo e faça seu cadastro, é rapido,
+               fácil e seguro.
+             </p>
+             </br>
+        </div>
+   </div> 
+
+ 
+   <div class="row">
+        <div class="col-6 pb-4 " style="background-color: rgba(51,178,255,0.7)" >
+             <div class="btn-group col justify-content-center" >
+                     <a  asp-area="" asp-controller="Cliente" asp-action="VerUsuarioCliente">
+                        <button type="button" class="btn btn-success btn-lg" name="butoncliente" > Cadastrar ou Fazer  Sua Conta</button>
+                     </a>   
+              </div>
+        </div>
+        <div class="col-3 pb-4 " style="background-color: rgba(51,178,255,0.9)" >
+             <div class="btn-group col justify-content-center">
+                     <a  asp-area="" asp-controller="Fornecedor" asp-action="VerUsuarioFornecedor">
+                          <button type="button" class="btn btn-success btn-lg" name="butonfornecedor">Cadastrar ou Fazer Sua Conta</button>
+                      </a>   
+              </div>
+        </div>
+        <div class="col-3 pb-4 " style="background-color: rgba(51,178,255,0.9)" >
+             <div class="btn-group col justify-content-center">
+                      <a  asp-area="" asp-controller="Servico" asp-action="VerUsuarioServico">
+                          <button type="button" class="btn btn-danger btn-lg" name="butoncliente" > Cadastrar Seu Serviço</button>
+                      </a>   
+              </div>
+        </div>
+
+   </div>     
+
+</div>
+
+
+<!-- nao esta funcionando direto somente chamada -->
+ <script>
+   var ChamaCliFor=function(value,object){  
+    
+       if( object.innerHTML=value == "Servico"){
+            alert ("Botao Serivco foi selecionado" );
+       }
+
+       if( object.innerHTML=value == "Fornecedor"){
+            ViewBag.nSelecaoFormulario="Fornecedor";
+       }
+    };   
+
+ </script>

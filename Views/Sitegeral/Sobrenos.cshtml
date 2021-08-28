@@ -1,0 +1,123 @@
+@using Microsoft.AspNetCore.Http
+
+@{
+    Layout = "_LayoutPagina";
+    ViewData["Title"] = "Quem Somos";
+}
+
+ @if(Context.Session.GetInt32("idUsuario") != null){
+     <div>
+     @{
+     await Html.RenderPartialAsync("BarraUsuario");
+     }
+
+     </div>
+ }
+
+<div class="container-fluid px-0 mx-0">
+
+    <div class="row">
+       <div class="col-12 pb-2 borda-principal"  style="background-color: rgba(51,178,255,0.5);" >
+            <br/>               
+            <h1 class="text-center"> QUEM SOMOS</h1>
+        </div>    
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 pb-2 " >
+            <br/>               
+            <h3 class="text-center" id="Alinha-Texto"> Uma empresa apaixanada pelo que faz e inclusive com grande amor pelo seu Pet.</h2>
+            <hr>
+        </div>
+    </div>
+   
+    <div class="row justify-content-center">
+
+            <div class="col-sm-3 my-2 mx-2"  style="text-align: center">
+                <div class="btn-group" >
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalMissao"  > Missao</button>
+                </div>
+            </div>
+            <div class="col-sm-3  my-2 mx-2" style="text-align: center">
+                <div class="btn-group" >
+                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalPrincipios">Principios</button>
+                </div>
+            </div>
+            <div class="col-sm-3  my-2 mx-2" style="text-align: center">
+                <div class="btn-group" >
+                    <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#modalPaixao"">Nossa Paixão</button>
+                </div>
+            </div>
+
+      </div>
+
+</div>
+
+<!-- Modal MISSAO-->
+<div class="modal fade" id="modalMissao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Missão da Empresa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <p id="Alinha-Texto"> Temos  como  missão  principal aproximar os 
+              clientes apaixoandas por PETS dos forncedores adequados
+               e também apaixonados pelos PETS.
+          </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal PRINCIPIOS-->
+<div class="modal fade" id="modalPrincipios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Principio da Empresa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <p id="Alinha-Texto"> Nosso Principios são: a) Amor e Paixão pelos PETS;
+              b) Homestidade; c) Transparência e) Compromisso</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal  NOSSA PAIXAO-->
+<div class="modal fade" id="modalPaixao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nossa Paixão</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <p id="Alinha-Texto"> Como nós do site temos, um enorme paixão e 
+               amor pelos nossos PETS em conjunto
+               e parceria  com  nossos Clientes e 
+               nossos Fornecedores.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>

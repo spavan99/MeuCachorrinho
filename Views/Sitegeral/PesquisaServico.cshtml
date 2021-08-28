@@ -1,0 +1,191 @@
+@model IEnumerable<servico>
+@using Microsoft.AspNetCore.Http
+
+@{
+    Layout = "_LayoutPagina";
+    ViewData["Title"] = "Pesquisa Servico";
+    
+}
+
+@if(Context.Session.GetInt32("idUsuario") != null){
+     <div>
+     @{
+     await Html.RenderPartialAsync("BarraUsuario");
+     }
+
+     </div>
+ }
+
+
+<div class="container-fluid px-0 mx-0">
+
+    <div class="row mb-2">
+       <div class="col-12 pb-2 borda-principal"  style="background-color: rgba(51,178,255,0.5);" >
+            <br/>               
+            <h4 class="text-center" id="Alinha-Texto"> Encontre os melhores e mais amados serviços de: @ViewData["nTituloServico"] para seu PET </h4>
+         </div>    
+    </div>
+
+</div>
+
+<!-- formulario pesquisa -->
+<div class="col-md-12 mx-1 px-1 borda-principal-sombra">
+    <form class="my-2 py-1 mx-1 borda-principal" id="CadastroUsuario" asp-action="ProcuraPetServico" asp-controller="Sitegeral" method="POST" style="background-color: rgb(213, 161, 0, 0.8); border-radius: 0.5em">
+ 
+        <input type="text" class="form-control" id="tipoConsulta" name="tipoConsulta"  value=@ViewBag.TIPOserv readonly hidden>
+        @{
+          //   document.getElementById('tipoConsulta').value = ViewBag.TIPOserv;   
+        }
+        <div class="form-group row px-2">
+            <div class="col-sm-3  my-1">
+                 <select class="form-control" id="pesqEstado" name="pesqEstado" placeholder="Selecione o Estado">
+                    @{
+                        int ntam = ViewBag.EstadoBrasil.Length;
+                        for( int i=0; i < ntam; i++){
+                            <option > @ViewBag.EstadoBrasil[i]</option>;           
+                        }
+                     }
+                </select>
+            </div>
+            <div class="col-sm-6  my-1">
+                <input type="text" class="form-control" id="pesqCidade" name="pesqCidade" placeholder="Informe a Cidade">
+            </div>
+            <div class="col-sm-3  my-1">
+                <button type="submit" class="btn btn-success ">Buscar:  @ViewData["nTituloServico"]</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+    <!--  fomrulario consulta -->
+
+
+   <!-- Vitrina monstrando 2 colunas espaco foto -->
+    @{ 
+
+       int nelemento = 0; 
+       if( Model == null){
+           nelemento = -1;
+       }
+       nelemento = Model.Count();
+       string  estilaimagens = "height: 250px; width:100%";
+       string  divimagens1 = "background-color: rgba(51,178,255,0.5); border-radius: 0.5em";
+       string  divTexto1 = "background-color: rgba(51,178,255,0.5); border-radius: 0.5em";
+       string  divimagens2 = "background-color: rgba(51,178,255,0.3); border-radius: 0.5em";
+       string  divTexto2 = "background-color: rgba(51,178,255,0.3); border-radius: 0.5em";
+   
+    } 
+ 
+   <div class="container-fluid py-1 mx-1 " id="Vitrine" style="margin-bottom: 5px">     
+
+            <!-- monta a vitrine 2 elemento por coluana -->
+            @{
+
+                int item1 = 0;
+                int item2 = 0;
+
+                if( nelemento == 0 ){
+                   // mensagem retorno pesquisa vazia                 
+                   <h2 class="text-center" style="color:red;" id="Alinha-Texto">  Tente nova Pesquisa, infelizmente NÃO econtramos o SERVIÇO DESEJADO </h2>
+                   <h3 class="text-center" style="color:black;" id="Alinha-Texto">  Altere os dados da pesquisa e tente novamente para a satisfacção do seu PETs </h3>
+
+                }
+
+
+                for (int i = 0; i < nelemento; i++)
+                {
+                    
+                    item1 = -1;
+                    item2 = -1;
+    
+                    // 1 elemento coluna
+                    if( i <  nelemento){
+                        item1 = i;
+                    }
+
+                    // 2 elemnto coluna
+                    i = i +1;
+                    if( i < nelemento){
+                        item2 = i;
+                    }
+
+                    <!-- 1 linha fotos vertor criar concecutivo-->
+                    <div class="form-group row ">
+
+                        @if( item1 >= 0){    
+              
+                           <!-- 1 coluna de serviço -->
+                            <div class="col-sm-3" style="@divimagens1">
+                                <label for="text" class="col-form-label">@Model.ElementAt(item1).idServico - @Model.ElementAt(item1).tipoServico</label>
+                                <img src="/fotos/recebidas/@Model.ElementAt(item1).fotoServico" style="@estilaimagens" />
+                            </div>
+                        
+                            <div class="col-sm-3 pb-2" style="@divTexto1">
+                            
+                                <label for="text" class="col-form-label">Nome do Servico:</label>
+                                <input type="text" asp-for="@Model.ElementAt(item1).nomeServico" class="form-control" id="nomeservico" readonly>
+ 
+                                <label for="text" class="col-form-label">Detalhe do Servico:</label>
+                                <input value="@Model.ElementAt(item1).detalheServico" class="form-control" id="detalheServico" readonly  >
+                                 
+                                <label for="text" class="col-form-label">Valor Servico:</label>
+                                <input type="number" asp-for="@Model.ElementAt(item1).valorServico" class="form-control" id="valorservico" readonly>
+                                
+                                <label for="text" class="col-form-label">Estado:</label>
+                                <input type="text" asp-for="@Model.ElementAt(item1).estadoServico" class="form-control" id="estadoservico" readonly>
+ 
+                                <label for="text" class="col-form-label">Cidade:</label>
+                                <input type="text" asp-for="@Model.ElementAt(item1).cidadeServico" class="form-control" id="cidadeervico" readonly>
+ 
+
+                            </div>
+                             
+                        }
+
+                        @if( item2 >= 0){    
+              
+                           <!-- 2 coluna de serviço -->
+                            <div class="col-sm-3" style="@divimagens2">
+                                <label for="text" class="col-form-label">@Model.ElementAt(item2).idServico - @Model.ElementAt(item2).tipoServico</label>
+                                <img src="/fotos/recebidas/@Model.ElementAt(item1).fotoServico" style="@estilaimagens" />
+                            </div>
+                        
+                            <div class="col-sm-3 pb-2" style="@divTexto2">
+                            
+                                <label for="text" class="col-form-label">Nome do Servico:</label>
+                                <input type="text" asp-for="@Model.ElementAt(item2).nomeServico" class="form-control" id="nomeservico" readonly>
+ 
+                                <label for="text" class="col-form-label">Detalhe do Servico:</label>
+                                <input value="@Model.ElementAt(item2).detalheServico" class="form-control" id="detalheServico" readonly  >
+                                 
+                                <label for="text" class="col-form-label">Valor Servico:</label>
+                                <input type="number" asp-for="@Model.ElementAt(item2).valorServico" class="form-control" id="valorservico" readonly>
+                                
+                                <label for="text" class="col-form-label">Estado:</label>
+                                <input type="text" asp-for="@Model.ElementAt(item2).estadoServico" class="form-control" id="estadoservico" readonly>
+ 
+                                <label for="text" class="col-form-label">Cidade:</label>
+                                <input type="text" asp-for="@Model.ElementAt(item2).cidadeServico" class="form-control" id="cidadeervico" readonly>
+ 
+
+                            </div>
+
+                        }
+
+                    </div>
+
+                }
+            }   
+  
+
+    </div>
+ </br>
+
+
+
+
+
+
+
+
+

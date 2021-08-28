@@ -1,0 +1,117 @@
+@using Microsoft.AspNetCore.Http
+
+<!-- MENU PRINCIPAL LOGADO -->
+@model usuario
+@{
+    string pStyle = "font-size:  90%; font-weight: bold; color: white";
+    string pStyle2 = "font-size: 90%; color: white; font-weight: bold";
+}
+
+
+<div class="font-weight: bold; background-color: rgba(255,187,51,1); border-radius: 0.5em; box-shadow: 0 8px 30px darkgrey; width:100%; margin:0 auto;" >
+
+<!--
+    <nav class="navbar navbar-default navbar-expand-sm navbar-dark bg-primary" role="navigation">
+-->
+     <nav class="navbar navbar-expand-sm navbar-light bg-primary"  > 
+ 
+       <div class="navbar-header">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"  style="@pStyle; margin-left: 10px" >Home</a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                   <span class="navbar-toggler-icon"></span>
+         
+            </button>
+        </div>
+ 
+<!-- 
+       <div class="navbar-collapse collapse d-sm-inline-flex " id="menu-paginas">
+             <ul class="navbar-nav flex-grow-1">
+-->
+
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto topnav">
+                <!-- menu padrao --> 
+                <li class="nav-item">
+                    <a class="nav-link text-dark " asp-area="" asp-controller="Sitegeral" asp-action="Sobrenos"  style="@pStyle">Quem Somos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark " asp-area="" asp-controller="Sitegeral" asp-action="Servico"  style="@pStyle">Serviços</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark " asp-area="" asp-controller="Sitegeral" asp-action="Fazercontas" style="@pStyle">Fazer Contas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark " asp-area="" asp-controller="Sitegeral" asp-action="Politica" style="@pStyle">Politicas</a>
+                </li>
+
+ 
+ <!--            <ul class="nav navbar-nav navbar-right">
+  -->
+                    <li class="dropdown" style="margin-right: 90px;" >
+                    <!-- Fazer Login -->
+                    <!-- anterior    
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="@pStyle2">
+                        <b>Fazer Login|</b>
+                        <img src="/icones/usuarionaologin.png" class="img-thumbnail" style="height: 35px; width: 45px" alt="Usuario Nao Logado">
+                    </a>
+                    -->
+                     <button class="dropdown-toggle btn btn-info btn-sm btn-block" data-toggle="dropdown"  >
+                             Login ou Criar Conta
+                     </button>
+                        <ul id="login-dp" class="dropdown-menu">
+                            <li>
+                                <div class="row borda-principal-sombra">
+                                    <div class="col-md-12">
+                                        <form  class="form mx-4" role="form" id="login-nav" asp-controller="Usuario" asp-action="LoginUser" method="POST" >
+                                            </br>
+                                            <div class="form-group">
+                                                <label>Usuario:</label>
+                                                <input asp-for="loginUsuario" placeholder="Usuario/Login" />
+                                            </div>  
+                                            <div class="form-group">
+                                                <label>Senha:</label>
+                                                <input type="password" asp-for="senhaUsuario"  placeholder="Senha">
+                                            </div>  
+                                            <div class="form-group">
+                                                <button type="submit"  width="50px"   class="btn btn-success btn-lg btn-block ">Login/Acesso</button>
+                                            </div>
+                                           
+                                        </form>
+                                    </div>
+                                    <div class="col-md-12  d-flex justify-content-center">
+                                      
+                                        <a class="navbar-brand" asp-area="" asp-controller="Usuario" asp-action="CadUserNaoLogado"   >
+                                           <button type="submit" width="50px" class="btn btn-outline-primary btn-lg btn-block ">SEM   Cadastro?</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+
+<!--
+                    <li class="nav-item">
+                        <!-- old                        
+                        <a class="navbar-brand" asp-area="" asp-controller="Usuario" asp-action="CadUserNaoLogado" style="@pStyle2" >Criar Conta  |
+                            <img src="/icones/usuarioconta.png" class="img-thumbnail" style="height: 35px; width: 45px" alt="Usuario Novo">
+                        </a>
+                        
+                        <a class="navbar-brand" asp-area="" asp-controller="Usuario" asp-action="CadUserNaoLogado" style="@pStyle2" >
+                            <button class="dropdown-toggle btn btn-danger btn-sm btn-block" data-toggle="dropdown"  >
+                                    Criar Conta
+                            </button>
+                        </a>
+                    </li>
+ -->
+ 
+                </ul>
+        </div>
+    </nav>
+</div>
+
+
+
+

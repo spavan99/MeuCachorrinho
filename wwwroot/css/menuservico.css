@@ -1,0 +1,70 @@
+
+    
+div.borda-menu { 
+    border: 1px solid black;;
+}
+
+div.imagem-principal {
+    background-image: url("/imagens/paginaprincipal2.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.75;
+}
+
+
+.botao-menu-banho {
+    background: url("/icones/banho1.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    height:75px;
+    width:150px;
+    outline:0;
+    -moz-outline:0;
+    cursor:pointer;
+    border: 1px solid black;
+}   
+
+.botao-menu-passear {
+    background: url("/icones/passeio1.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    height:75px;
+    width:150px;
+    outline:0;
+    -moz-outline:0;
+    cursor:pointer;
+    border: 1px solid black;
+    
+}
+
+.botao-menu-hotel {
+    background: url("/icones/hotel1.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    height:75px;
+    width:150px;
+    outline:0;
+    -moz-outline:0;
+    cursor:pointer;
+    border: 1px solid black;
+    
+}
+
+.botao-menu-veterinario {
+    background: url("/icones/veterinario1.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    height:75px;
+    width:150px;
+    outline:0;
+    -moz-outline:0;
+    cursor:pointer;
+    border: 1px solid black;
+    
+}
+
+

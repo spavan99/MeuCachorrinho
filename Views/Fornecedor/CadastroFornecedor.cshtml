@@ -1,0 +1,253 @@
+@model fornecedor
+
+@{
+    Layout = "_LayoutPagina";
+    ViewData["Title"] = "Cadastro de Fornecedor";
+    string ntemacao = "";
+    if( ViewBag.AcaoFomulario == "VER" || ViewBag.AcaoFomulario == "DELETAR"){
+        ntemacao = "disabled";
+    }  
+ 
+}
+
+@if( ViewBag.Mensagem != null ){
+    <div class="alert alert-danger" role="alert">
+        <p id="pMensagem">@ViewBag.Mensagem</p>
+    </div>
+}
+
+<div class="mx-0 px-0">
+
+    @{
+    await Html.RenderPartialAsync("BarraUsuario");
+    }
+
+</div>
+
+
+<div class="container">
+
+    <div class="row Cadastro-Titulo borda-principal">
+       <div class="col-8" >
+            <h5 id="pad-titulo-1"> CADASTRO DE FORNECEDOR </h5>
+        </div>   
+       <div class="col-4" >
+            <h5  id="pad-titulo-2" > @ViewBag.TituloPrincipal </h5>
+        </div>   
+    </div>
+
+   <!-- cadastro do Fornecedor -->
+   <form class="mb-2 py-2 Cadastro-Dados borda-principal"  id="meu-form-pet-fornecedor" asp-action="CadastroFornecedor" asp-controller="Fornecedor" method="POST">
+
+       <!-- controle do formulario esta hildem -->
+       <input  asp-for="idFornecedor" type="text" class="form-control" name="idFornecedor" id="idFornecedor" readonly hidden>
+
+    <!-- desabilitar form caso de VER e DELETAR --> 
+    <fieldset @ntemacao >
+        <div class="form-group row px-2" >
+  
+            <div class="col-sm-7 ">
+                <label for="text" class="col-form-label">Nome do Fornecedor:</label>
+                <input  asp-for="nomeFornecedor" type="text" class="form-control" name="nomeFornecedor" id="nomeFornecedor" required>
+            </div>
+
+            <div class="col-sm-2 ">
+                <label for="text" class="col-form-label">Tipo Pessoa(PJ/PF):</label>
+                <select asp-for="pessoaFornecedor" class="form-control" id="pessoaFornecedor" required>
+                    @{
+                        int tam = ViewBag.Pessoa.Length;
+                        
+                        for( int i=0; i < tam; i++){
+                                                        
+                             string pTeste = ViewBag.Pessoa[i];
+                             if( i == 0  && ViewBag.SelPessoa == ""){
+                                 <option disabled selected > @ViewBag.Pessoa[i]</option>;
+                             }else{
+                                if(  pTeste.Substring(0,1) == ViewBag.SelPessoa ){
+                                    <option selected > @ViewBag.Pessoa[i]</option>;           
+                                }else{
+                                    <option > @ViewBag.Pessoa[i]</option>;           
+                                }
+                             }
+                        }
+                    }
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label for="text" class="col-form-label ">CPF ou CNPJ: </label>
+                <input asp-for="identFornecedor " type="text" inputmode="numeric" class="form-control" id="identFornecedor" required >
+            </div>
+        </div>
+
+      <div class="form-group row px-2">
+            <div class="col-sm-4">
+                <label for="text" class="col-form-label ">Celular/Principal: </label>
+                <input asp-for="tel1Fornecedor" type="text" class="form-control" id="tel1Fornecedor" required>
+            </div>
+            <div class="col-sm-4 ">
+                <label for="text" class="col-form-label">Telefone Residencial:</label>
+                <input asp-for="tel2Fornecedor" type="text" class="form-control" id="tel2Fornecedor">
+            </div>
+            <div class="col-sm-4">
+                <label for="text" class="col-form-label ">Telefone Comercial: </label>
+                <input  asp-for="tel3Fornecedor" type="text" class="form-control" id="tel3Fornecedor">
+            </div>
+        </div>
+
+       <div class="form-group row px-2">
+            <div class="col-sm-8">
+                <label for="text" class="col-form-label ">Endereço: </label>
+                <input asp-for="enderecoFornecedor" type="text" class="form-control" id="enderecoFornecedor">
+            </div>
+            <div class="col-sm-4 ">
+                <label for="text" class="col-form-label">Bairro:</label>
+                <input asp-for="bairroFornecedor" type="text" class="form-control" id="bairroFornecedor">
+            </div>
+        </div>    
+
+        <div class="form-group row px-2">
+          
+            <div class="col-sm-4">
+                <label for="text" class="col-form-label ">CEP: </label>
+                <input asp-for="cepFornecedor" type="text" class="form-control" id="cepFornecedor">
+            </div>
+
+            <div class="col-sm-4 ">
+                <label for="text" class="col-form-label">Estado:</label>
+                <select asp-for="estadoFornecedor" class="form-control" id="estadoFornecedor" required>
+                    @{
+                        int ntam = ViewBag.EstadoBrasil.Length;
+                        for( int i=0; i < ntam; i++){
+                             string pTeste2 = ViewBag.EstadoBrasil[i];
+                             if( i == 0  && ViewBag.SelEstado == ""){
+                                 <option disabled selected > @ViewBag.EstadoBrasil[i]</option>;
+                             }else{
+                                if(  pTeste2.Substring(0,2) == ViewBag.SelEstado ){
+                                    <option selected > @ViewBag.EstadoBrasil[i]</option>;           
+                                }else{
+                                    <option > @ViewBag.EstadoBrasil[i]</option>;           
+                                }
+                             }
+                        }
+                    }
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <label for="text" class="col-form-label ">Cidade: </label required>
+                <input asp-for="cidadeFornecedor" type="text" class="form-control" id="cidadeFornecedor">
+            </div>
+
+        </div>
+
+    </fieldset>
+
+       <div class="form-group row px-2 py-2">
+            <div class="col-sm-8">
+                <button type="submit" id="BtCadFornecedor"  name="BtCadFornecedor"  value="CANCELAR" class="btn btn-primary " formnovalidate >Voltar</button>
+                @if(  ViewBag.AcaoFomulario == "CADASTRADO"){
+                   <button type="submit" id="BtCadFornecedor"  name="BtCadFornecedor"  value="SALVARCADASTRO" class="btn btn-success ">Salvar Cadastro</button>
+                }
+                @if(  ViewBag.AcaoFomulario == "EDITAR"){
+                    <button type="submit" id="BtCadFornecedor"  name="BtCadFornecedor"  value="ALTERACAO" class="btn btn-success ">Alterar Cadastro</button>
+                }
+                @if(  ViewBag.AcaoFomulario == "DELETAR"){
+                    <button type="submit" id="BtCadFornecedor"  name="BtCadFornecedor"  value="DELETAR" class="btn btn-success ">Confirmar Exclusão</button>
+                }
+
+            </div>
+        </div>    
+
+ 
+    </form>
+
+</div>
+
+
+
+
+
+<script type="text/javascript">
+
+  // JQUERY mascara campos - foco todo formulario
+
+  $(document).ready(function(){
+        
+        $('#identFornecedor').mask('000.000.000-00', {reverse: true});  
+        // cpf 000.000.000-99
+        // cpf 00.000.000/0000-00
+        $("#tel1Fornecedor").mask("(000)0-0000-0000");
+        $("#tel2Fornecedor").mask("(999)9999-9999");
+        $("#tel3Fornecedor").mask("(999)9999-9999");
+        $("#cepFornecedor").mask("99.999-999");
+
+
+        $("#pessoaFornecedor").change(function(){
+           var nTipo = $("#pessoaFornecedor").val();
+           nTipo = nTipo.substring(0,1);
+       
+            if ( nTipo == "1"){
+                $('#identFornecedor').mask('000.000.000-00', {reverse: true});  
+    
+            }else{
+                $('#identFornecedor').mask('00.000.000/0000-00' , {reverse: true});
+            };
+        });
+
+   });
+
+$(document).ready( function() {
+	$("#meu-form-pet-fornecedor").validate({
+		/* REGRAS DE VALIDAÇÃO DO FORMULÁRIO */
+		rules:{
+			nomeFornecedor:{
+				required: true, /* Campo obrigatório */
+                 minlength: 5    /* No mínimo 5 caracteres */
+			},
+            identFornecedor:{
+                required: true,
+                minlength: 11
+            },
+			tel1Fornecedor:{
+				required: true, /* Campo obrigatório */
+                minlength: 12
+			},
+            estadoFornecedor:{
+                required: true
+            },
+            cidadeFornecedor:{
+                required: true,
+                minlength: 3    /* menor cidade Chui no Brasil utilizndo 1 digito a menos*/
+            },
+            pessoaFornecedor:{
+                required: true
+            }
+		},
+		/* DEFINIÇÃO DAS MENSAGENS DE ERRO */
+		messages:{
+			nomeFornecedor:{
+				required: "Preencher o Nome do Fornecedor",
+				minlength: "Necessário Nome Completo"
+			},
+            identFornecedor:{
+                required: "informar CPF/CNPJ",
+                minlength: "Falta Digitos"
+            },
+			tel1Fornecedor:{
+				required: "Preencha o número do Celular",
+                minlength: "Falta Digitos"
+			},
+            estadoFornecedor:{
+                required: "Informar Estado"
+            },
+            cidadeFornecedor:{
+                required: "Preencher a Cidade",
+                minlength: "Cidade errada"
+            },
+            pessoaFornecedor:{
+                required: "PF/PJ necessário"
+            }
+		},
+	});
+});
+
+</script>

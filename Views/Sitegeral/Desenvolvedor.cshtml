@@ -1,0 +1,41 @@
+@using Microsoft.AspNetCore.Http
+@{
+    Layout = "_LayoutPagina";
+    ViewData["Title"] = "Desenvolver";
+}
+
+ @if(Context.Session.GetInt32("idUsuario") != null){
+     <div>
+     @{
+     await Html.RenderPartialAsync("BarraUsuario");
+     }
+
+     </div>
+ }
+
+
+
+<div class="container-fluid px-0 mx-0">
+
+    <div class="row">
+       <div class="col-12 pb-2 borda-principal"  style="background-color: rgba(51,178,255,0.5);" >
+            <br/>               
+            <h1 class="text-center"> SISTEMA:  MEU CACHORRINHO - Versão 1.0</h1>
+        </div>    
+    </div>
+
+    <div class="row">
+        <div class="col-6 pb-2 pt-4 ">
+            <img src="/imagens/logodesen.png" width=100% height=200px alt="Imagem Logo Desenvolvedor" >
+        </div>
+        <div class="col-6 pb-2 " >
+            </br>
+            <P id="Alinha-Texto"> Desenvolvido por:  Silvio Ap. M. Pavan</P>
+            </br>
+            <p id="Alinha-Texto"> Empresa: Pavan Sistemas - spavan@terra.com.br</p>
+            </br>
+            <p id="Alinha-Texto"> Copyrite Proibido conforme Leis de Proteçao</p>
+        </div>
+    
+    </div>
+</div>  

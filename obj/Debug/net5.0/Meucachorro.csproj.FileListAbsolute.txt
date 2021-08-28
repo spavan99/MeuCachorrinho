@@ -1,0 +1,159 @@
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.csprojAssemblyReference.cache
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.GeneratedMSBuildEditorConfig.editorconfig
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.AssemblyInfoInputs.cache
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.AssemblyInfo.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.csproj.CoreCompileInputs.cache
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.MvcApplicationPartsAssemblyInfo.cache
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.RazorAssemblyInfo.cache
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.RazorAssemblyInfo.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\bin\Debug\net5.0\appsettings.Development.json
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\bin\Debug\net5.0\appsettings.json
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\bin\Debug\net5.0\Meucachorro.exe
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\bin\Debug\net5.0\Meucachorro.deps.json
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\bin\Debug\net5.0\Meucachorro.runtimeconfig.json
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\bin\Debug\net5.0\Meucachorro.runtimeconfig.dev.json
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\bin\Debug\net5.0\Meucachorro.dll
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\bin\Debug\net5.0\ref\Meucachorro.dll
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\bin\Debug\net5.0\Meucachorro.pdb
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\bin\Debug\net5.0\Meucachorro.Views.dll
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\bin\Debug\net5.0\Meucachorro.Views.pdb
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\staticwebassets\Meucachorro.StaticWebAssets.Manifest.cache
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\staticwebassets\Meucachorro.StaticWebAssets.xml
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\scopedcss\bundle\Meucachorro.styles.css
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.TagHelpers.input.cache
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.TagHelpers.output.cache
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.RazorCoreGenerate.cache
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\Politica.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\Sobrenos.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.RazorTargetAssemblyInfo.cache
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.RazorTargetAssemblyInfo.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.Views.pdb
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.dll
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\ref\Meucachorro.dll
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.pdb
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.genruntimeconfig.cache
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Meucachorro.csproj.CopyComplete
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\_LayoutIndex.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\_LayoutPagina.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\_LayoutRodape1.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\Desenvolvedor.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\Fazercontas.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\Servico.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\Menu.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\PesquisaServico.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\Facil.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\bin\Debug\net5.0\MySqlConnector.dll
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Cliente\CadastroCliente.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\BarraUsuario.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Cliente\ListaCliente.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Fornecedor\CadastroFornecedor.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Fornecedor\ListaFornecedor.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Usuario\CadastroUsuario.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Usuario\ListaUsuario.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Usuario\LoginUser.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Servico\ListaServico.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Servico\CadastroServico.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Upload\EnviarArquivo.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Upload\Index.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\BannerRotativo.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\MenuPagina.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\BarraFooter.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\BannerPrincipal.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\MenuPrincipal.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\MenuLogadoPrincipal.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\MenuServico.cshtml.g.cs
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\bin\Debug\net5.0\appsettings - Copia.json
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\bin\Debug\net5.0\appsettings.Development - Copia.json
+G:\SILVIO-TECNO-INFORMATICA-SENAC-2020\PROJETO-INTEGRADOR-UC08\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\MenuSite.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\bin\Debug\net5.0\appsettings - Copia.json
+S:\senac-2021\projeto integrador - b\Meucachorro\bin\Debug\net5.0\appsettings.Development - Copia.json
+S:\senac-2021\projeto integrador - b\Meucachorro\bin\Debug\net5.0\appsettings.Development.json
+S:\senac-2021\projeto integrador - b\Meucachorro\bin\Debug\net5.0\appsettings.json
+S:\senac-2021\projeto integrador - b\Meucachorro\bin\Debug\net5.0\Meucachorro.exe
+S:\senac-2021\projeto integrador - b\Meucachorro\bin\Debug\net5.0\Meucachorro.deps.json
+S:\senac-2021\projeto integrador - b\Meucachorro\bin\Debug\net5.0\Meucachorro.runtimeconfig.json
+S:\senac-2021\projeto integrador - b\Meucachorro\bin\Debug\net5.0\Meucachorro.runtimeconfig.dev.json
+S:\senac-2021\projeto integrador - b\Meucachorro\bin\Debug\net5.0\Meucachorro.dll
+S:\senac-2021\projeto integrador - b\Meucachorro\bin\Debug\net5.0\ref\Meucachorro.dll
+S:\senac-2021\projeto integrador - b\Meucachorro\bin\Debug\net5.0\Meucachorro.pdb
+S:\senac-2021\projeto integrador - b\Meucachorro\bin\Debug\net5.0\Meucachorro.Views.dll
+S:\senac-2021\projeto integrador - b\Meucachorro\bin\Debug\net5.0\Meucachorro.Views.pdb
+S:\senac-2021\projeto integrador - b\Meucachorro\bin\Debug\net5.0\MySqlConnector.dll
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.csproj.AssemblyReference.cache
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.GeneratedMSBuildEditorConfig.editorconfig
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.AssemblyInfoInputs.cache
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.AssemblyInfo.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.csproj.CoreCompileInputs.cache
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.MvcApplicationPartsAssemblyInfo.cache
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.RazorAssemblyInfo.cache
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.RazorAssemblyInfo.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\staticwebassets\Meucachorro.StaticWebAssets.Manifest.cache
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\staticwebassets\Meucachorro.StaticWebAssets.xml
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\scopedcss\bundle\Meucachorro.styles.css
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.TagHelpers.input.cache
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.TagHelpers.output.cache
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.RazorCoreGenerate.cache
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Cliente\CadastroCliente.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Cliente\ListaCliente.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Fornecedor\CadastroFornecedor.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Fornecedor\ListaFornecedor.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Servico\CadastroServico.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Servico\ListaServico.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\BannerPrincipal.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\BannerRotativo.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\BarraFooter.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\BarraUsuario.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\MenuLogadoPrincipal.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\MenuPagina.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\MenuPrincipal.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\MenuServico.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\MenuSite.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\_LayoutIndex.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\_LayoutPagina.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\_LayoutRodape1.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\Desenvolvedor.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\Facil.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\Fazercontas.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\Menu.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\PesquisaServico.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\Politica.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\Servico.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Sitegeral\Sobrenos.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Upload\EnviarArquivo.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Upload\Index.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Usuario\CadastroUsuario.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Usuario\ListaUsuario.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Usuario\LoginUser.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.RazorTargetAssemblyInfo.cache
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.RazorTargetAssemblyInfo.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.Views.pdb
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.csproj.CopyComplete
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.dll
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\ref\Meucachorro.dll
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.pdb
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Meucachorro.genruntimeconfig.cache
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\old_LayoutIndex.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\_HeadPadrao.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\MenuTopServico.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\_FerramentaFooter.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\_OLDFerramentaFooter.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Home\_TelaMenuInicial copy.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Home\_MenuInicialSERV.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\_FooterJava.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\Banner2Principal.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\Banner3Principal.cshtml.g.cs
+S:\senac-2021\projeto integrador - b\Meucachorro\obj\Debug\net5.0\Razor\Views\Shared\Banner2Principal copy.cshtml.g.cs

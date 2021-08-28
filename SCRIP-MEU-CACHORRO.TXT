@@ -1,0 +1,103 @@
+SITE MEU CACHORRINHO
+
+--> SCRIPT
+
+--> Criar Banco Dados
+
+CREATE DATABASE petmais CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+
+--> Criar Tabela de Usuario
+
+CREATE TABLE usuario(
+
+     idUsuario         int NOT NULL  AUTO_INCREMENT,
+     emailUsuario      varchar(45),
+     loginUsuario      varchar(45),
+     senhaUsuario      varchar(25),
+     tipoUsuario       varchar(1), 
+     dtcadUsuario      Date,
+     PRIMARY KEY(idUsuario)
+     );
+
+
+
+--> Criar Tabela de Cliente
+
+CREATE TABLE cliente(
+
+     idCliente         int(9) NOT NULL  AUTO_INCREMENT,
+     nomeCliente       varchar(50),
+     enderecoCliente   varchar(80),
+     nrresCliente      int(6),
+     bairroCliente     varchar(25),
+     complCliente      varchar(50),
+     cepCliente        varchar(10),     
+     cidadeCliente     varchar(45),
+     estadoCliente     varchar(2),
+     tel1Cliente       varchar(15),
+     tel2Cliente       varchar(15),
+     tel3Cliente       varchar(15),
+     pessoaCliente     varchar(1),
+     tpindCliente      varchar(3),
+     identCliente      varchar(20),
+     idUsuarioCli      int(9),
+     dtcadCliente      Date,
+     PRIMARY KEY(idCliente)
+     );
+     
+     
+ 
+--> Criar Tabela de FORNECEDOR
+
+CREATE TABLE fornecedor(
+
+     idFornecedor         int(9) NOT NULL  AUTO_INCREMENT,
+     nomeFornecedor       varchar(50),
+     enderecoFornecedor   varchar(80),
+     nrresFornecedor      int(6),
+     bairroFornecedor     varchar(25),
+     complFornecedor      varchar(50),
+     cepFornecedor        varchar(10),     
+     cidadeFornecedor     varchar(45),
+     estadoFornecedor     varchar(2),
+     tel1Fornecedor       varchar(15),
+     tel2Fornecedor       varchar(15),
+     tel3Fornecedor       varchar(15),
+     pessoaFornecedor     varchar(1),
+     tpindFornecedor      varchar(3),
+     identFornecedor      varchar(20),
+     idUsuarioFor         int(9),
+     dtcadFornecedor      Date,
+     PRIMARY KEY(idFornecedor)
+     ); 
+      
+  
+
+ 
+--> Criar Tabela de SERVICO
+
+CREATE TABLE servico(
+
+     idServico         int(15) NOT NULL  AUTO_INCREMENT,
+     nomeServico       varchar(80),
+     detalheServico    varchar(250),
+     valorServico      double(12,2),
+     fotoServico       varchar(45),
+     tipoServico       varchar(15),
+     cidadeServico     varchar(30),
+     estadoServico     varchar(2),
+     idForServico      int(9),
+     PRIMARY KEY(idServico)
+     );
+     
+     
+     
+     
+     
+     
+
+
+
+
+

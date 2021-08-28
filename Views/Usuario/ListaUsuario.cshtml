@@ -1,0 +1,82 @@
+
+@model IEnumerable<usuario>
+
+<link rel="stylesheet" href="~/css/sitepet.css" />
+
+@{
+    ViewData["Title"] = "Cadastro de Usuario - Grid";
+}
+
+
+@if( ViewBag.Mensagem != null ){
+    <div class="alert alert-danger" role="alert">
+        <p id="pMensagem">@ViewBag.Mensagem</p>
+    </div>
+}
+
+@{
+    await Html.RenderPartialAsync("_FerramentaFooter");
+}
+
+
+
+ <div class="container-fluid mx-0 px-0" >
+    <div class="row ">
+       <div class="col-md-12 mx-2 my-2 borda-principal Listagem-Titulo" >
+            <br>        
+            <h2  id="pad-listagem-1"> Cadastro de Usuário </h2>
+            <br/>
+       </div>    
+    </div>
+ </div>
+
+ <div class="container-fluid mx-1 px-1" > 
+            <table class="table table-striped table-hover" id="minhaTabela" >
+   
+                <thead>
+                    <tr>
+                        <th scope="col">
+                           <a href="/Usuario/CadastroUsuario" class="btn btn-success btnsm">Cadastrar</a>  
+                        </th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Login</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Senha</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Data Cadastro</th>
+                    </tr>
+                </thead>
+
+                <tbody >
+                    @foreach (usuario a in Model)
+                    {
+                        <tr >
+ 
+                            <td id="a.idUsuario"  class="actions">
+
+                                  <a href="/Usuario/EditarUsuario/@a.idUsuario" >
+                                      <img src="/icones/edit2.png"  width="25" height="25">
+                                  </a>
+                                  <a href="/Usuario/VerUsuario/@a.idUsuario" >
+                                      <img src="/icones/ver.png"  width="25" height="25">
+                                  </a>
+                                  <a href="/Usuario/DeletarUsuario/@a.idUsuario" >
+                                      <img src="/icones/delete.png"  width="25" height="25">
+                                  </a>
+                            </td> 
+                            <td >@a.idUsuario</td>
+                            <td>@a.loginUsuario</td>
+                            <td>@a.emailUsuario</td>
+                            <td>@a.senhaUsuario</td>
+                            <td>@a.tipoUsuario</td>
+                            <td>@a.dtcadUsuario.ToShortDateString()</td>
+                         
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            </br>
+  </div>
+</div>
+

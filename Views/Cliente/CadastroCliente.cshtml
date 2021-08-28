@@ -1,0 +1,343 @@
+@model cliente
+
+@{
+    Layout = "_LayoutPagina";
+    ViewData["Title"] = "Cadastro de Cliente";
+    string ntemacao = "";
+    if( ViewBag.AcaoFomulario == "VER" || ViewBag.AcaoFomulario == "DELETAR"){
+        ntemacao = "disabled";
+    }  
+ 
+}
+
+@if( ViewBag.Mensagem != null ){
+    <div class="alert alert-danger" role="alert">
+        <p id="pMensagem">@ViewBag.Mensagem</p>
+    </div>
+}
+
+
+<div class="mx-0 px-0">
+    @{
+  
+    await Html.RenderPartialAsync("BarraUsuario");
+    }
+
+</div>
+
+
+<div class="container">
+
+    <div class="row Cadastro-Titulo borda-principal">
+       <div class="col-8" >
+            <h5 id="pad-titulo-1"> CADASTRO DE CLIENTE </h5>
+        </div>   
+       <div class="col-4" >
+            <h5  id="pad-titulo-2" > @ViewBag.TituloPrincipal </h5>
+        </div>   
+    </div>
+
+   <!-- cadastro do cliente -->
+   <form class="mb-2 py-2 Cadastro-Dados borda-principal"  id="meu-form-pet-cliente" asp-action="CadastroCliente" asp-controller="Cliente" method="POST" >
+
+       <!-- controle do formulario esta hildem -->
+       <input  asp-for="idCliente" type="text" class="form-control" name="idCliente" id="idCliente" readonly hidden>
+
+    <!-- desabilitar form caso de VER e DELETAR --> 
+    <fieldset @ntemacao >
+        <div class="form-group row px-2" >
+  
+            <div class="col-sm-7 ">
+                <label for="text" class="col-form-label">Nome do Cliente:</label>
+                <input  asp-for="nomeCliente" type="text" class="form-control" name="nomeCliente" id="nomeCliente" required >
+                <span class="msg_erro  msg_nomeCliente"></span>
+            </div>
+
+            <div class="col-sm-2 ">
+                <label for="text" class="col-form-label">Pessoa(PJ/PF):</label>
+                <select asp-for="pessoaCliente" class="form-control" id="pessoaCliente" required >
+                    @{
+                        int tam = ViewBag.Pessoa.Length;
+                        
+                        for( int i=0; i < tam; i++){
+                                                        
+                             string pTeste = ViewBag.Pessoa[i];
+                             if( i == 0  && ViewBag.SelPessoa == ""){
+                                 <option disabled selected > @ViewBag.Pessoa[i]</option>;
+                             }else{
+                                if(  pTeste.Substring(0,1) == ViewBag.SelPessoa ){
+                                    <option selected > @ViewBag.Pessoa[i]</option>;           
+                                }else{
+                                    <option > @ViewBag.Pessoa[i]</option>;           
+                                }
+                             }
+                        }
+                    }
+                </select>
+                <span class="msg_erro  msg_pessoaCliente"></span>
+            </div>
+            <div class="col-sm-3">
+                <label for="text" class="col-form-label ">CPF ou CNPJ: </label>
+                <input asp-for="identCliente " type="text" inputmode="numeric" class="form-control identCliente" id="identCliente" required >
+                <span class="msg_erro  msg_identCliente"></span>
+            </div>
+        </div>
+
+      <div class="form-group row px-2">
+            <div class="col-sm-4">
+                <label for="text" class="col-form-label ">Celular/Principal: </label>
+                <input asp-for="tel1Cliente" type="text" class="form-control" id="tel1Cliente" required>
+                <span class="msg_erro  msg_tel1Cliente"></span>
+            </div>
+            <div class="col-sm-4 ">
+                <label for="text" class="col-form-label">Telefone Residencial:</label>
+                <input asp-for="tel2Cliente" type="text" class="form-control" id="tel2Cliente">
+            </div>
+            <div class="col-sm-4">
+                <label for="text" class="col-form-label ">Telefone Comercial: </label>
+                <input  asp-for="tel3Cliente" type="text" class="form-control" id="tel3Cliente">
+            </div>
+        </div>
+
+       <div class="form-group row px-2">
+            <div class="col-sm-8">
+                <label for="text" class="col-form-label ">Endereço: </label>
+                <input asp-for="enderecoCliente" type="text" class="form-control" id="enderecoCliente">
+            </div>
+            <div class="col-sm-4 ">
+                <label for="text" class="col-form-label">Bairro:</label>
+                <input asp-for="bairroCliente" type="text" class="form-control" id="bairroCliente">
+            </div>
+        </div>    
+
+        <div class="form-group row px-2">
+          
+            <div class="col-sm-4">
+                <label for="text" class="col-form-label ">CEP: </label>
+                <input asp-for="cepCliente" type="text" class="form-control" id="cepCliente">
+            </div>
+
+            <div class="col-sm-4 ">
+                <label for="text" class="col-form-label">Estado:</label>
+                <select asp-for="estadoCliente" class="form-control" id="estadoCliente" required>
+                    @{
+                        int ntam = ViewBag.EstadoBrasil.Length;
+                        for( int i=0; i < ntam; i++){
+                             string pTeste2 = ViewBag.EstadoBrasil[i];
+                             if( i == 0  && ViewBag.SelEstado == ""){
+                                 <option disabled selected > @ViewBag.EstadoBrasil[i]</option>;
+                             }else{
+                                if(  pTeste2.Substring(0,2) == ViewBag.SelEstado ){
+                                    <option selected > @ViewBag.EstadoBrasil[i]</option>;           
+                                }else{
+                                    <option > @ViewBag.EstadoBrasil[i]</option>;           
+                                }
+                             }
+                        }
+                    }
+                </select>
+                <span class="msg_erro  msg_estadoCliente"></span>
+            </div>
+            <div class="col-sm-4">
+                <label for="text" class="col-form-label ">Cidade: </label >
+                <input asp-for="cidadeCliente" type="text" class="form-control" id="cidadeCliente" required>
+            </div>
+
+        </div>
+
+    </fieldset>
+
+       <div class="form-group row px-2 py-2">
+            <div class="col-sm-8">
+                <button type="submit" id="BtCadCliente"  name="BtCadCliente"  value="CANCELAR" class="btn btn-primary " formnovalidate >Voltar</button>
+                @if(  ViewBag.AcaoFomulario == "CADASTRADO"){
+                   <button type="submit" id="BtCadCliente"  name="BtCadCliente"  value="SALVARCADASTRO" class="btn btn-success ">Salvar Cadastro</button>
+                }
+                @if(  ViewBag.AcaoFomulario == "EDITAR"){
+                    <button type="submit" id="BtCadCliente"  name="BtCadCliente"  value="ALTERACAO" class="btn btn-success ">Alterar Cadastro</button>
+                }
+                @if(  ViewBag.AcaoFomulario == "DELETAR"){
+                    <button type="submit" id="BtCadCliente"  name="BtCadCliente"  value="DELETAR" class="btn btn-success ">Confirmar Exclusão</button>
+                }
+
+            </div>
+        </div>    
+
+ 
+    </form>
+
+</div>
+
+
+
+
+
+<script type="text/javascript">
+
+  // JQUERY mascara campos - foco todo formulario
+
+  $(document).ready(function(){
+        
+        $('#identCliente').mask('000.000.000-00', {reverse: true});  
+        // cpf 000.000.000-99
+        // cpf 00.000.000/0000-00
+        $("#tel1Cliente").mask("(000)0-0000-0000");
+        $("#tel2Cliente").mask("(999)9999-9999");
+        $("#tel3Cliente").mask("(999)9999-9999");
+        $("#cepCliente").mask("99.999-999");
+
+
+        $("#pessoaCliente").change(function(){
+           var nTipo = $("#pessoaCliente").val();
+           nTipo = nTipo.substring(0,1);
+       
+            if ( nTipo == "1"){
+                $('#identCliente').mask('000.000.000-00', {reverse: true});  
+    
+            }else{
+                $('#identCliente').mask('00.000.000/0000-00' , {reverse: true});
+            };
+        });
+
+   });
+ 
+
+
+//$("#meu-form-pet").submit(function(){
+//    alert("O formulario foi enviado.");
+//    alert(" ccccccccccccccccc");
+//
+//});
+
+
+$(document).ready( function() {
+	$("#meu-form-pet-cliente").validate({
+		/* REGRAS DE VALIDAÇÃO DO FORMULÁRIO */
+		rules:{
+			nomeCliente:{
+				required: true, /* Campo obrigatório */
+                 minlength: 5    /* No mínimo 5 caracteres */
+			},
+            identCliente:{
+                required: true,
+                minlength: 11
+            },
+			tel1Cliente:{
+				required: true, /* Campo obrigatório */
+                minlength: 12
+			},
+            estadoCliente:{
+                required: true
+            },
+            cidadeCliente:{
+                required: true,
+                minlength: 3    /* menor cidade Chui no Brasil utilizndo 1 digito a menos*/
+            },
+            pessoaCliente:{
+                required: true
+            }
+		},
+		/* DEFINIÇÃO DAS MENSAGENS DE ERRO */
+		messages:{
+			nomeCliente:{
+				required: "Preencher o Nome do Cliente",
+				minlength: "Necessário Nome Completo"
+			},
+            identCliente:{
+                required: "informar CPF/CNPJ",
+                minlength: "Falta Digitos"
+            },
+			tel1Cliente:{
+				required: "Preencha o número do Celular",
+                minlength: "Falta Digitos"
+			},
+            estadoCliente:{
+                required: "Informar Estado"
+            },
+            cidadeCliente:{
+                required: "Preencher a Cidade",
+                minlength: "Cidade errada"
+            },
+            pessoaCliente:{
+                required: "PF/PJ necessário"
+            }
+		},
+	});
+});
+
+
+
+/********** FUNCAO JAVA  DESABILITADA
+function Chk_Cliente(nForm) {
+
+        alert('teste  teste');
+
+        // todos campos para checar
+        caixamsg = document.querySelector(".msg_nomecliente");
+        caixamsg.style.display = "none";
+
+        caixamsg = document.querySelector(".msg_pessoaCliente");
+        caixamsg.style.display = "none";
+
+        caixamsg = document.querySelector(".msg_identCliente");
+        caixamsg.style.display = "none";
+
+        caixamsg = document.querySelector(".msg_tel1Cliente");
+        caixamsg.style.display = "none";
+
+        caixamsg = document.querySelector(".msg_estadoCliente");
+        caixamsg.style.display = "none";
+
+
+        if (nform.nomeCliente.value.length < 8) {
+
+            //alert( "Cliente invalidao");
+            caixamsg.innerHTML = "Nome Completo do cliente";
+            caixamsg.style.display = "block";
+
+            nform.nomeCliente.focus();
+            return false;
+
+        }
+
+        if (nform.identCliente.value.substring(0, 1) == "S") {
+
+            //alert( "pessoa fisica ou jurica invalida");
+            caixamsg.innerHTML = "PJ/PF não Selecionado";
+            caixamsg.style.display = "block";
+
+            nform.identCliente.focus();
+            return false;
+
+        }
+
+
+        if (nform.tel1Cliente.value.length < 12) {
+
+            //alert( "pessoa fisica ou jurica invalida");
+            caixamsg.innerHTML = "Celular Invalido";
+            caixamsg.style.display = "block";
+
+            nform.tel1Cliente.focus();
+            return false;
+
+        }
+
+
+        if (nform.estadoCliente.value.substring(0, 4) == "Sele") {
+
+            //alert( "pessoa fisica ou jurica invalida");
+            caixamsg.innerHTML = "Selecione Estado";
+            caixamsg.style.display = "block";
+
+            nform.estdoCliente.focus();
+            return false;
+
+        }
+
+        alert(  "bosta bosta ");
+
+    }
+}
+*/
+</script>

@@ -1,0 +1,89 @@
+﻿@using Microsoft.AspNetCore.Http
+
+<!--  *****  LAYOUT DAS PAGINA INICIAL ***** -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Meucachorrinho</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/menuservico.css" />
+ 
+   <!--  
+        <link rel="stylesheet" href="~/css/sitepet.css" />
+     
+        <link rel="stylesheet" href="~/css/sitepet.css" />
+  -->
+
+    </head>
+
+    <body class="py-0 my-0" >
+
+        <header>
+           <div class="container">
+  
+                @if(Context.Session.GetInt32("idUsuario") != null){
+                    await Html.RenderPartialAsync("MenuLogadoPrincipal");
+                    await Html.RenderPartialAsync("BannerPrincipal");
+                }else{
+                    <div class="row borda-principal">
+                        <!-- logo do empresa do site -->
+                        <div class="col-3 pr-0" >
+                            <div style="height: 180px; background-color: rgba(51,178,255,0.5);">
+                                <!-- colocar link home  na imagem-->
+                                <a asp-area="" asp-controller="Home" asp-action="Index">
+                                        <img src="/imagens/logo1.png" class="img-thumbnail" style="height: 100%; width: 100%" alt="Logo MeuCachorrinho">
+                                </a>
+                                </div>
+                        </div>
+                        <!-- menu e banner colocar loop futuro -->
+                        <div class="col-9 pl-0" >
+                            @if(Context.Session.GetInt32("idUsuario") != null){
+                                    await Html.RenderPartialAsync("MenuLogadoPrincipal");
+                            }else{
+                                    await Html.RenderPartialAsync("MenuPrincipal");
+                            } 
+                            <!-- carregar banner rotativo das paginas -->
+                            @{
+                                await Html.RenderPartialAsync("BannerPrincipal");
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </header>
+
+        <div class="container py-0 my-0">
+
+          <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <!-- ******** rodape ********* -->
+         <footer class="container border-top text-muted py-0 my-0" >
+
+            <br/>   
+            <!-- carregar RODAPE das paginas -->
+            @{
+                await Html.RenderPartialAsync("BarraFooter");
+            }
+
+        </footer>
+    
+        
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+ 
+        @await RenderSectionAsync("Scripts", required: false)
+
+
+    </body>
+
+</html>
+
+

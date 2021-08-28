@@ -1,0 +1,35 @@
+@using System.Collections.Generic
+@using Microsoft.AspNetCore.Http
+
+<!-- Banner Carrosuel rotativo paginas de cadastro -->
+   @{
+      string nstilus = "Banner-Inicial";
+       @if(Context.Session.GetInt32("idUsuario") != null){
+          nstilus = "Banner-Inicial-logado";
+       }
+    }
+
+<!-- baner pagina pricipal -->
+<!-- carrossel pagina principal -->
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="1500" id="@nstilus" >
+    <div class="carousel-inner">
+        <div class="carousel-item active" id="@nstilus"> 
+            <img class="d-block w-100" src="/imagens/imageminicial2.png"  style="height: 100%; width:100%" alt="Primeiro Slide" >
+        </div>
+        <div class="carousel-item" id="@nstilus">
+            <img class="d-block w-100" src="/imagens/imagem01.jpg"  style="height: 100%; width:100%" alt="Segundo Slide">
+        </div>
+        <div class="carousel-item" id="@nstilus">
+            <img class="d-block w-100" src="/imagens/imagem2.jpg" style="height: 100%; width:100%" alt="Terceiro Slide">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only" >Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Próximo</span>
+    </a>
+</div>
+
