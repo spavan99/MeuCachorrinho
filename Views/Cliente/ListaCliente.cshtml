@@ -3,6 +3,12 @@
 
 @{
     ViewData["Title"] = "Cadastro de Cliente - Grid";
+
+    int FiltroPorPag = Int32.Parse(ViewData["itensPorPagina"].ToString());
+    int PaginaAtual =  Int32.Parse(ViewData["PaginaAtual"].ToString());
+    int NumItensPorPag = (Model.Count()<FiltroPorPag ? Model.Count() : FiltroPorPag);
+    int NumTotalDePag = ( NumItensPorPag > 0 ? ( Model.Count()/NumItensPorPag  + (Model.Count()%NumItensPorPag==0 ? 0 : 1)) : 1 );
+//    int NumTotalDePag = Model.Count/NumItensPorPag + (Model.Count%NumItensPorPag==0 ? 0 : 1); 
 }
 
 
@@ -28,57 +34,143 @@
  </div>
 
  <div class="container-fluid mx-1 px-1" > 
-            <table class="table table-striped table-hover" id="minhaTabela" >
-                <thead>
-                    <tr>
-                        <th scope="col">
-                           <a href="/Cliente/CadastroCliente" class="btn btn-success btnsm">Cadastrar</a>  
-                        </th>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nome Cliente</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">Cidade</th>
-                        <th scope="col">Celular</th>
-                        <th scope="col">Tel Residecial</th>
-                        <th scope="col">Tel Comercial</th>
-                        <th scope="col">1-PF 2-PJ</th>
-                    </tr>
-                </thead>
 
-                <tbody >
-                    @foreach (cliente a in Model)
-                    {
-                        <tr >
+        <div class="row">
+            
+            <div class="col-md-12 mx-1 px-1 ">
+                       
+                <form class="my-2 py-1 mx-1 borda-principal pesquisa-grid"  asp-controller="Cliente" asp-action="ListaCliente" method="POST">
+        
+                    <div class="form-group row px-2 ">
  
-                            <td id="a.idCliente"  class="actions">
+                       <div class="col-sm-1 my-1 ">  
+                            <select name="TipoFiltro" class="form-control">
+                                <option value="Nome">Nome</option>
+                                <option value="Estado">Estado</option>
+                                <option value="Cidade">Cidade</option>
+                                <option value="Celular">Celular</option>
+                                <option value="Id">Id</option>
+                            </select>
 
-                                  <a href="/Cliente/EditarCliente/@a.idCliente" >
-                                      <img src="/icones/edit2.png"  width="25" height="25">
-                                  </a>
-                                  <a href="/Cliente/VerCliente/@a.idCliente" >
-                                      <img src="/icones/ver.png"  width="25" height="25">
-                                  </a>
-                                  <a href="/Cliente/DeletarCliente/@a.idCliente" >
-                                      <img src="/icones/delete.png"  width="25" height="25">
-                                  </a>
-                            </td> 
-                            <td >@a.idCliente</td>
-                            <td>@a.nomeCliente</td>
-                            <td>@a.estadoCliente</td>
-                            <td>@a.cidadeCliente</td>
-                            <td>@a.tel1Cliente</td>
-                            <td>@a.tel2Cliente</td>
-                            <td>@a.tel3Cliente</td>
-                             @if( a.pessoaCliente == "1"){
-                                <td>"1-Fisíca"</td>
-                             }else{
-                                <td>"2-Juridica"</td>
-                             }
-                        
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                       </div>
+
+                       <div class="col-sm-3 my-1 ">
+                            <input type="text" placeholder="Filtro" name="DadosFiltro" class="form-control"/>
+                       </div>
+                
+                       <div class="col-sm-1 my-1 ">
+                           <button type="submit" class="btn btn-primary mb-2  mx-sm-3">Pesquisar</button>
+                       </div>
+
+<!--
+                       <div class="col-sm-2 my-1 ">
+                             <select name="itensSel" id="itensSel"   >
+                                <option value="10"  >10 Itens</option>
+                                <option value="15"   >15 Itens </option>
+                                <option value="15"  >15 Itens </option>
+                                <option value="20"  >20 Itens</option>
+                                <option value="35"  >35 Itens</option>
+                                <option value="50"  >50 Itens</option>
+                           </select>
+                        </div>
+-->
+
+                       <div class="col-sm-7 my-1 justify-content-end" id="SeletorPaginas">
+                            <nav aria-label="Navegação">
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item ">
+                                    <a class="page-link" href="/Cliente/ListaCliente?PaginaAtual=1" tabindex="-1">Primeira</a>
+                                    </li>
+                                            @{string estilo = "";}
+
+                                            @for(int i=1; i<=NumTotalDePag; i++)
+                                            {
+                                                if( PaginaAtual == i){
+                                                    estilo= "active";
+                                                }else{
+                                                    estilo= "";
+                                                }
+                                                <li class="page-item @estilo">
+                                                    <a class="page-link" href= "/Cliente/ListaCliente?PaginaAtual=@i">@i</a>
+                                                </li>
+
+                                            }
+                            
+                                    <li class="page-item">
+                                        <a class="page-link" href= "/Cliente/ListaCliente?PaginaAtual=@NumTotalDePag">Ultima</a>
+                                    </li>
+    
+                                </ul>
+                            </nav>
+                       </div>
+
+                    </div>
+                </form>
+            </div>
+
+            @if(Model.Count()!=0)
+            {
+                    <table class="table table-striped table-hover" id="minhaTabela" >
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                <a href="/Cliente/CadastroCliente" class="btn btn-success btnsm">Cadastrar</a>  
+                                </th>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nome Cliente</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Cidade</th>
+                                <th scope="col">Celular</th>
+                                <th scope="col">Tel Residecial</th>
+                                <th scope="col">Tel Comercial</th>
+                                <th scope="col">1-PF 2-PJ</th>
+                            </tr>
+                        </thead>
+
+                        <tbody >
+
+
+                            @for(int i = (PaginaAtual-1)*NumItensPorPag; i<(NumItensPorPag*PaginaAtual<Model.Count()?NumItensPorPag*PaginaAtual:Model.Count()); i++)
+     
+
+                            {
+                                <tr >
+        
+                                    <td id="a.idCliente"  class="actions">
+
+                                        <a href="/Cliente/EditarCliente/@Model.ElementAt(i).idCliente" >
+                                            <img src="/icones/edit2.png"  width="25" height="25">
+                                        </a>
+                                        <a href="/Cliente/VerCliente/@Model.ElementAt(i).idCliente" >
+                                            <img src="/icones/ver.png"  width="25" height="25">
+                                        </a>
+                                        <a href="/Cliente/DeletarCliente/@Model.ElementAt(i).idCliente" >
+                                            <img src="/icones/delete.png"  width="25" height="25">
+                                        </a>
+                                    </td> 
+                    
+                                    <td>@Model.ElementAt(i).idCliente</td>
+                                    <td>@Model.ElementAt(i).nomeCliente</td>
+                                    <td>@Model.ElementAt(i).estadoCliente</td>
+                                    <td>@Model.ElementAt(i).cidadeCliente</td>
+                                    <td>@Model.ElementAt(i).tel1Cliente</td>
+                                    <td>@Model.ElementAt(i).tel2Cliente</td>
+                                    <td>@Model.ElementAt(i).tel3Cliente</td>
+                                    @if( Model.ElementAt(i).pessoaCliente == "1"){
+                                        <td>"1-Fisíca"</td>
+                                    }else{
+                                        <td>"2-Juridica"</td>
+                                    }
+                                
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+            }else{
+
+                <p class="msg-nao-econtrado"> Pesquisa nao econtrado no cadastro, Favor tentar outra !!!</p>
+            }
             </br>
 
     </div>

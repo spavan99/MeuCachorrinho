@@ -79,7 +79,8 @@ namespace Meucachorro.Models
 
        }
 
-        public List<servico> Listar(int pID, string nTipoServico, string nEstado, string nCidade)
+// antes        public List<servico> Listar(int pID, string nTipoServico, string nEstado, string nCidade)
+        public List<servico> Listar(string pID, string nTipoServico, string nEstado, string nCidade)
         {
 
             if( nTipoServico == null){
@@ -99,11 +100,11 @@ namespace Meucachorro.Models
             // Buscar  ID = 0 (por causa ser int) tabela toda caso contratio o usuario especificado
             string _sql = null;
             // vier ID seleciona pelo idSerivoc
-            if( pID == 0 ){
+            if( pID == null ){
                 _sql = "SELECT * FROM servico" ;
             }else{
-              _sql = "SELECT * FROM servico WHERE idServico = "+ pID +";" ;
-
+              //_sql = "SELECT * FROM servico WHERE idServico = "+ pID +";" ;
+               _sql = pID;
             }
 
             // ser vier Ntipo Faz selecao por tipo caso contrario prevalece if acima

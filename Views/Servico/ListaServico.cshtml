@@ -4,6 +4,13 @@
 
 @{
     ViewData["Title"] = "Cadastro de Servico - Grid";
+
+    int FiltroPorPag = Int32.Parse(ViewData["itensPorPagina"].ToString());
+    int PaginaAtual =  Int32.Parse(ViewData["PaginaAtual"].ToString());
+    int NumItensPorPag = (Model.Count()<FiltroPorPag ? Model.Count() : FiltroPorPag);
+    int NumTotalDePag = ( NumItensPorPag > 0 ? ( Model.Count()/NumItensPorPag  + (Model.Count()%NumItensPorPag==0 ? 0 : 1)) : 1 );
+//    int NumTotalDePag = Model.Count/NumItensPorPag + (Model.Count%NumItensPorPag==0 ? 0 : 1); 
+
 }
 
 
@@ -29,7 +36,86 @@
     </div>
  </div>
 
- <div class="container-fluid mx-1 px-1" > 
+  <div class="container-fluid mx-1 px-1" > 
+
+        <div class="row">
+            
+            <div class="col-md-12 mx-1 px-1 ">
+                       
+                <form class="my-2 py-1 mx-1 borda-principal pesquisa-grid"  asp-controller="Servico" asp-action="ListaServico" method="POST">
+        
+                    <div class="form-group row px-2 ">
+ 
+                       <div class="col-sm-1 my-1 ">  
+                            <select name="TipoFiltro" class="form-control">
+                                <option value="Tipo">Tipo</option>
+                                <option value="Servico">Serviço</option>
+                                <option value="Estado">Estado</option>
+                                <option value="Cidade">Cidade</option>
+                                <option value="Id">Id</option>
+                            </select>
+
+                       </div>
+
+                       <div class="col-sm-3 my-1 ">
+                            <input type="text" placeholder="Filtro" name="DadosFiltro" class="form-control"/>
+                       </div>
+                
+                       <div class="col-sm-1 my-1 ">
+                           <button type="submit" class="btn btn-primary mb-2  mx-sm-3">Pesquisar</button>
+                       </div>
+
+<!--
+                       <div class="col-sm-2 my-1 ">
+                             <select name="itensSel" id="itensSel"   >
+                                <option value="10"  >10 Itens</option>
+                                <option value="15"   >15 Itens </option>
+                                <option value="15"  >15 Itens </option>
+                                <option value="20"  >20 Itens</option>
+                                <option value="35"  >35 Itens</option>
+                                <option value="50"  >50 Itens</option>
+                           </select>
+                        </div>
+-->
+
+                       <div class="col-sm-7 my-1 justify-content-end" id="SeletorPaginas">
+                            <nav aria-label="Navegação">
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item ">
+                                    <a class="page-link" href="/Servico/ListaServico?PaginaAtual=1" tabindex="-1">Primeira</a>
+                                    </li>
+                                            @{string estilo = "";}
+
+                                            @for(int i=1; i<=NumTotalDePag; i++)
+                                            {
+                                                if( PaginaAtual == i){
+                                                    estilo= "active";
+                                                }else{
+                                                    estilo= "";
+                                                }
+                                                <li class="page-item @estilo">
+                                                    <a class="page-link" href= "/Servico/ListaServico?PaginaAtual=@i">@i</a>
+                                                </li>
+
+                                            }
+                            
+                                    <li class="page-item">
+                                        <a class="page-link" href= "/Servico/ListaServico?PaginaAtual=@NumTotalDePag">Ultima</a>
+                                    </li>
+    
+                                </ul>
+                            </nav>
+                       </div>
+
+                    </div>
+                </form>
+            </div>
+
+            @if(Model.Count()!=0)
+            {
+
+ 
+ 
             <table class="table table-striped table-hover" id="minhaTabela" >
                 <thead>
                     <tr>
@@ -50,36 +136,43 @@
                 </thead>
 
                 <tbody >
-                    @foreach (servico a in Model)
+
+                    @for(int i = (PaginaAtual-1)*NumItensPorPag; i<(NumItensPorPag*PaginaAtual<Model.Count()?NumItensPorPag*PaginaAtual:Model.Count()); i++)
                     {
                         <tr >
  
                             <td id="a.idServico"  class="actions">
 
-                                  <a href="/Servico/EditarServico/@a.idServico" >
+                                  <a href="/Servico/EditarServico/@Model.ElementAt(i).idServico" >
                                       <img src="/icones/edit2.png"  width="25" height="25">
                                   </a>
-                                  <a href="/Servico/VerServico/@a.idServico" >
+                                  <a href="/Servico/VerServico/@Model.ElementAt(i).idServico" >
                                       <img src="/icones/ver.png"  width="25" height="25">
                                   </a>
-                                  <a href="/Servico/DeletarServico/@a.idServico" >
+                                  <a href="/Servico/DeletarServico/@Model.ElementAt(i).idServico" >
                                       <img src="/icones/delete.png"  width="25" height="25">
                                   </a>
                             </td> 
-                            <td >@a.idServico</td>
-                            <td>@a.tipoServico</td>
-                            <td>@a.nomeServico</td>
-                            <td>@a.detalheServico</td>
-                            <td>@a.estadoServico</td>
-                            <td>@a.cidadeServico</td>
-                            <td>@a.valorServico</td>
-                            <td>@a.fotoServico</td>
-                            <td>@a.idForServico</td>
+                            <td >@Model.ElementAt(i).idServico</td>
+                            <td>@Model.ElementAt(i).tipoServico</td>
+                            <td>@Model.ElementAt(i).nomeServico</td>
+                            <td>@Model.ElementAt(i).detalheServico</td>
+                            <td>@Model.ElementAt(i).estadoServico</td>
+                            <td>@Model.ElementAt(i).cidadeServico</td>
+                            <td>@Model.ElementAt(i).valorServico</td>
+                            <td>@Model.ElementAt(i).fotoServico</td>
+                            <td>@Model.ElementAt(i).idForServico</td>
                         
                         </tr>
                     }
                 </tbody>
             </table>
+
+            }else{
+
+                <p class="msg-nao-econtrado"> Pesquisa nao econtrado no cadastro, Favor tentar outra !!!</p>
+            }
+
             </br>
   </div>
 

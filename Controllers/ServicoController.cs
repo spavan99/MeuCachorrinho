@@ -23,19 +23,56 @@ namespace Meucachorro.Controllers
             _appEnvironment = env;
         }
 
-         public IActionResult ListaServico(){
+         public IActionResult ListaServico( string TipoFiltro, string DadosFiltro, string itensPorPagina, int NumDaPagina,  int PaginaAtual){
    
+     
              if(HttpContext.Session.GetInt32("idUsuario") == null){
               //return RedirectToAction("../Home/Index"); 
               return Redirect("/Home/Index");
              }  
             
+             // logica esta travada no 15 informado variavel itensporpagaina vem sempre nula ou branca
+                ViewData[ "itensPorPagina"] = ( string.IsNullOrEmpty(itensPorPagina) ? 15 :  Int32.Parse(itensPorPagina));
+                ViewData["PaginaAtual"] = ( PaginaAtual != 0 ? PaginaAtual: 1);
+                ViewBag.SetPagina = itensPorPagina;
+   
+            
+            string pSql = "SELECT * FROM Servico" ;
+            if( DadosFiltro != null){
+
+                    // texto ter uma '  e like e % para contido
+                    if( TipoFiltro == "Tipo" ){
+                       pSql = "SELECT * FROM servico WHERE tipoServico LIKE '%" + DadosFiltro + "%'";
+                    };
+
+
+                    if( TipoFiltro == "Servico" ){
+                       pSql = "SELECT * FROM servico WHERE nomeServico LIKE '%" + DadosFiltro + "%'";
+                    };
+
+                    if( TipoFiltro == "Estado" ){
+                       pSql = "SELECT * FROM servico WHERE estadoServico LIKE '%" + DadosFiltro + "%'";
+                    };
+
+                    if( TipoFiltro == "Cidade" ){
+                       pSql = "SELECT * FROM servico WHERE cidadeServico LIKE '%" + DadosFiltro + "%'";
+                    };
+
+                    // numerico
+                    if( TipoFiltro == "Id" ){
+                       pSql = "SELECT * FROM servico WHERE idServico = "+ DadosFiltro +";" ;
+                    };
+
+            };
+
+
             // falta colocar filtro o usuario pegar a viagem
             //int iduser = Convert.ToInt32(HttpContext.Session.GetString("UmUS"));
             ServicoBanco nSE = new ServicoBanco();
-            List<servico> nListaSE = nSE.Listar(0, "", "", "");
+            List<servico> nListaSE = nSE.Listar( pSql, "", "", "");
             return View(nListaSE);
       
+
         }
          
         // Cadastrar o Servico

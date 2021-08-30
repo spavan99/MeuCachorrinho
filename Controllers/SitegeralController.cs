@@ -71,7 +71,7 @@ namespace Meucachorrinho.Controllers
             
             ViewData["nTituloServico"] = nTipoServico;
             ServicoBanco nCon = new ServicoBanco(); 
-            List<servico> nLista = nCon.Listar( 0, nTipoServico, nEstado, nCidade);
+            List<servico> nLista = nCon.Listar( null, nTipoServico, nEstado, nCidade);
             ViewBag.TIPOserv = nTipoServico;
             return View(nLista);
             //return View();

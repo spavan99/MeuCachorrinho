@@ -64,17 +64,44 @@ namespace Meucachorro.Controllers
         } 
   
  
-         public IActionResult ListaUsuario(){
+         public IActionResult ListaUsuario( string TipoFiltro, string DadosFiltro, string itensPorPagina, int NumDaPagina,  int PaginaAtual)
+         {
    
              if(HttpContext.Session.GetInt32("idUsuario") == null){
               //return RedirectToAction("../Home/Index"); 
                 return Redirect("/Home/Index");
             }  
+                // logica esta travada no 15 informado variavel itensporpagaina vem sempre nula ou branca
+                ViewData[ "itensPorPagina"] = ( string.IsNullOrEmpty(itensPorPagina) ? 15 :  Int32.Parse(itensPorPagina));
+                ViewData["PaginaAtual"] = ( PaginaAtual != 0 ? PaginaAtual: 1);
+                ViewBag.SetPagina = itensPorPagina;
+   
             
+            string pSql = "SELECT * FROM usuario" ;
+            if( DadosFiltro != null){
+
+                    // texto ter uma '  e like e % para contido
+                    if( TipoFiltro == "Login" ){
+                       pSql = "SELECT * FROM usuario WHERE loginUsuario LIKE '%" + DadosFiltro + "%'";
+                    };
+
+
+                    if( TipoFiltro == "Email" ){
+                       pSql = "SELECT * FROM usuario WHERE emailUsuario LIKE '%" + DadosFiltro + "%'";
+                    };
+
+                    // numerico
+                    if( TipoFiltro == "Id" ){
+                       pSql = "SELECT * FROM usuario WHERE idUsuario = "+ DadosFiltro +";" ;
+                    };
+
+            };
+
+
             // falta colocar filtro o usuario pegar a viagem
             //int iduser = Convert.ToInt32(HttpContext.Session.GetString("UmUS"));
             UsuarioBanco nUr = new UsuarioBanco();
-            List<usuario> nLista = nUr.Listar(0);
+            List<usuario> nLista = nUr.Listar(pSql);
             return View(nLista);
       
         }

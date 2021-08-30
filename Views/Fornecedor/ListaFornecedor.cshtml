@@ -5,6 +5,13 @@
 
 @{
     ViewData["Title"] = "Cadastro de Fornecedor - Grid";
+
+    int FiltroPorPag = Int32.Parse(ViewData["itensPorPagina"].ToString());
+    int PaginaAtual =  Int32.Parse(ViewData["PaginaAtual"].ToString());
+    int NumItensPorPag = (Model.Count()<FiltroPorPag ? Model.Count() : FiltroPorPag);
+    int NumTotalDePag = ( NumItensPorPag > 0 ? ( Model.Count()/NumItensPorPag  + (Model.Count()%NumItensPorPag==0 ? 0 : 1)) : 1 );
+//    int NumTotalDePag = Model.Count/NumItensPorPag + (Model.Count%NumItensPorPag==0 ? 0 : 1); 
+
 }
 
 
@@ -32,6 +39,83 @@
  </div>
 
   <div class="container-fluid mx-1 px-1" >
+
+        <div class="row">
+            
+            <div class="col-md-12 mx-1 px-1 ">
+                       
+                <form class="my-2 py-1 mx-1 borda-principal pesquisa-grid"  asp-controller="Fornecedor" asp-action="ListaFornecedor" method="POST">
+        
+                    <div class="form-group row px-2 ">
+ 
+                       <div class="col-sm-1 my-1 ">  
+                            <select name="TipoFiltro" class="form-control">
+                                <option value="Nome">Nome</option>
+                                <option value="Estado">Estado</option>
+                                <option value="Cidade">Cidade</option>
+                                <option value="Celular">Celular</option>
+                                <option value="Id">Id</option>
+                            </select>
+
+                       </div>
+
+                       <div class="col-sm-3 my-1 ">
+                            <input type="text" placeholder="Filtro" name="DadosFiltro" class="form-control"/>
+                       </div>
+                
+                       <div class="col-sm-1 my-1 ">
+                           <button type="submit" class="btn btn-primary mb-2  mx-sm-3">Pesquisar</button>
+                       </div>
+
+<!--
+                       <div class="col-sm-2 my-1 ">
+                             <select name="itensSel" id="itensSel"   >
+                                <option value="10"  >10 Itens</option>
+                                <option value="15"   >15 Itens </option>
+                                <option value="15"  >15 Itens </option>
+                                <option value="20"  >20 Itens</option>
+                                <option value="35"  >35 Itens</option>
+                                <option value="50"  >50 Itens</option>
+                           </select>
+                        </div>
+-->
+
+                       <div class="col-sm-7 my-1 justify-content-end" id="SeletorPaginas">
+                            <nav aria-label="Navegação">
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item ">
+                                    <a class="page-link" href="/Fornecedor/ListaFornecedor?PaginaAtual=1" tabindex="-1">Primeira</a>
+                                    </li>
+                                            @{string estilo = "";}
+
+                                            @for(int i=1; i<=NumTotalDePag; i++)
+                                            {
+                                                if( PaginaAtual == i){
+                                                    estilo= "active";
+                                                }else{
+                                                    estilo= "";
+                                                }
+                                                <li class="page-item @estilo">
+                                                    <a class="page-link" href= "/Fornecedor/ListaFornecedor?PaginaAtual=@i">@i</a>
+                                                </li>
+
+                                            }
+                            
+                                    <li class="page-item">
+                                        <a class="page-link" href= "/Fornecedor/ListaFornecedor?PaginaAtual=@NumTotalDePag">Ultima</a>
+                                    </li>
+    
+                                </ul>
+                            </nav>
+                       </div>
+
+                    </div>
+                </form>
+            </div>
+
+            @if(Model.Count()!=0)
+            {
+
             <table class="table  table-striped table-hover table-responsive"  id="minhaTabela" >
                 <thead>
                     <tr>
@@ -51,31 +135,32 @@
                 </thead>
 
                 <tbody >
-                    @foreach (fornecedor a in Model)
+
+                   @for(int i = (PaginaAtual-1)*NumItensPorPag; i<(NumItensPorPag*PaginaAtual<Model.Count()?NumItensPorPag*PaginaAtual:Model.Count()); i++)
                     {
                         <tr >
  
                             <td id="a.idFornecedor"  class="actions">
 
-                                  <a href="/Fornecedor/EditarFornecedor/@a.idFornecedor" >
+                                  <a href="/Fornecedor/EditarFornecedor/@Model.ElementAt(i).idFornecedor" >
                                       <img src="/icones/edit2.png"  width="25" height="25">
                                   </a>
-                                  <a href="/Fornecedor/VerFornecedor/@a.idFornecedor" >
+                                  <a href="/Fornecedor/VerFornecedor/@Model.ElementAt(i).idFornecedor" >
                                       <img src="/icones/ver.png"  width="25" height="25">
                                   </a>
-                                  <a href="/Fornecedor/DeletarFornecedor/@a.idFornecedor" >
+                                  <a href="/Fornecedor/DeletarFornecedor/@Model.ElementAt(i).idFornecedor" >
                                       <img src="/icones/delete.png"  width="25" height="25">
                                   </a>
                             </td> 
-                            <td >@a.idFornecedor</td>
-                            <td>@a.nomeFornecedor</td>
-                            <td>@a.estadoFornecedor</td>
-                            <td>@a.cidadeFornecedor</td>
-                            <td>@a.tel1Fornecedor</td>
-                            <td>@a.tel2Fornecedor</td>
-                            <td>@a.tel3Fornecedor</td>
+                            <td >@Model.ElementAt(i).idFornecedor</td>
+                            <td>@Model.ElementAt(i).nomeFornecedor</td>
+                            <td>@Model.ElementAt(i).estadoFornecedor</td>
+                            <td>@Model.ElementAt(i).cidadeFornecedor</td>
+                            <td>@Model.ElementAt(i).tel1Fornecedor</td>
+                            <td>@Model.ElementAt(i).tel2Fornecedor</td>
+                            <td>@Model.ElementAt(i).tel3Fornecedor</td>
 
-                            @if( a.pessoaFornecedor == "1"){
+                            @if( Model.ElementAt(i).pessoaFornecedor == "1"){
                                 <td>"1-Fisíca"</td>
                              }else{
                                 <td>"2-Juridica"</td>
@@ -86,6 +171,12 @@
                     }
                 </tbody>
             </table>
+
+            }else{
+
+                <p class="msg-nao-econtrado"> Pesquisa nao econtrado no cadastro, Favor tentar outra !!!</p>
+            }
+
             </br>
   </div>
 

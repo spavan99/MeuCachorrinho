@@ -103,17 +103,19 @@ namespace Meucachorro.Models
 
        }
 
-        public List<usuario> Listar(int pID)
+        public List<usuario> Listar(string pID)
         {
 
             // Buscar  ID = 0 (por causa ser int) tabela toda caso contratio o usuario especificado
-            string _sql = null;
-            if( pID == 0 ){
-                _sql = "SELECT * FROM usuario" ;
-            }else{
-              _sql = "SELECT * FROM usuario WHERE IdUsuario = "+ pID +";" ;
+            //string _sql = null;
+            //if( pID == 0 ){
+            //    _sql = "SELECT * FROM usuario" ;
+            //}else{
+            //  _sql = "SELECT * FROM usuario WHERE IdUsuario = "+ pID +";" ;
+            //
+            //}
 
-            }
+           string _sql = pID;
 
             Conexao_BD.Open();
             MySqlCommand comandoQuery = new MySqlCommand(_sql, Conexao_BD);

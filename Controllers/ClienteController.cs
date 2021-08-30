@@ -16,17 +16,49 @@ namespace Meucachorro.Controllers
     {
 
 
-         public IActionResult ListaCliente(){
+         public IActionResult ListaCliente( string TipoFiltro, string DadosFiltro, string itensPorPagina, int NumDaPagina,  int PaginaAtual){
    
              if(HttpContext.Session.GetInt32("idUsuario") == null){
               //return RedirectToAction("../Home/Index"); 
               return Redirect("/Home/Index");
              }  
+
+               // logica esta travada no 15 informado variavel itensporpagaina vem sempre nula ou branca
+                ViewData[ "itensPorPagina"] = ( string.IsNullOrEmpty(itensPorPagina) ? 15 :  Int32.Parse(itensPorPagina));
+                ViewData["PaginaAtual"] = ( PaginaAtual != 0 ? PaginaAtual: 1);
+                ViewBag.SetPagina = itensPorPagina;
+   
             
-            // falta colocar filtro o usuario pegar a viagem
-            //int iduser = Convert.ToInt32(HttpContext.Session.GetString("UmUS"));
+            string pSql = "SELECT * FROM cliente" ;
+            if( DadosFiltro != null){
+
+                    // texto ter uma '  e like e % para contido
+                    if( TipoFiltro == "Nome" ){
+                       pSql = "SELECT * FROM cliente WHERE nomeCliente LIKE '%" + DadosFiltro + "%'";
+                    };
+
+
+                    if( TipoFiltro == "Estado" ){
+                       pSql = "SELECT * FROM cliente WHERE estadoCliente LIKE '%" + DadosFiltro + "%'";
+                    };
+
+                    if( TipoFiltro == "Cidade" ){
+                       pSql = "SELECT * FROM cliente WHERE cidadeCliente LIKE '%" + DadosFiltro + "%'";
+                    };
+
+                    if( TipoFiltro == "Celular" ){
+                       pSql = "SELECT * FROM cliente WHERE tel1Cliente LIKE '%" + DadosFiltro + "%'";
+                    };
+
+                    // numerico
+                    if( TipoFiltro == "Id" ){
+                       pSql = "SELECT * FROM cliente WHERE idCliente = "+ DadosFiltro +";" ;
+                    };
+
+            };
+           
             ClientesBanco nCli = new ClientesBanco();
-            List<cliente> nListaCli = nCli.Listar(0);
+            List<cliente> nListaCli = nCli.Listar(pSql);
             return View(nListaCli);
       
         }
